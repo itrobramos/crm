@@ -99,7 +99,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="single_recepie text-center">
                         <div class="recepie_thumb">
-                            <img src="template/img/recepie/recpie_1.png" alt="">
+                            <img src="template/img/recepie/recpie_7.png" alt="">
                         </div>
                         <h3>Comportamiento</h3>
                         <span>Básico</span>
@@ -110,7 +110,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="single_recepie text-center">
                         <div class="recepie_thumb">
-                            <img src="template/img/recepie/recpie_2.png" alt="">
+                            <img src="template/img/recepie/recpie_8.png" alt="">
                         </div>
                         <h3>Juegos</h3>
                         <span>Básico</span>
@@ -121,7 +121,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="single_recepie text-center">
                         <div class="recepie_thumb">
-                            <img src="template/img/recepie/recpie_3.png" alt="">
+                            <img src="template/img/recepie/recpie_9.png" alt="">
                         </div>
                         <h3>Comidas</h3>
                         <span>Básico</span>

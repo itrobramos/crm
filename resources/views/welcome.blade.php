@@ -34,7 +34,7 @@
                         </div>
                         <div class="col-xl-6 col-lg-7">
                             <div class="main-menu   d-none d-lg-block">
-                                <nav>
+                                <!-- <nav>
                                     <ul id="navigation">
                                         <li><a href="index.html">home</a></li>
                                         <li><a href="about.html">about</a></li>
@@ -53,14 +53,7 @@
                                         </li>
                                         <li><a href="contact.html">Contact</a></li>
                                     </ul>
-                                </nav>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                            <div class="search_icon">
-                                <a href="#">
-                                    <i class="ti-search"></i>
-                                </a>
+                                </nav> -->
                             </div>
                         </div>
                         <div class="col-12">
@@ -93,7 +86,7 @@
     </div>
     <!-- slider_area_end -->
     <!-- recepie_area_start  -->
-    <div class="recepie_area">
+    <!-- <div class="recepie_area">
         <div class="container">
             <div class="row">
                 <div class="col-xl-4 col-lg-4 col-md-6">
@@ -101,7 +94,7 @@
                         <div class="recepie_thumb">
                             <img src="template/img/recepie/recpie_7.png" alt="">
                         </div>
-                        <h3>Comportamiento</h3>
+                        <h3>Comportamiento</h3> 
                         <span>Básico</span>
                         <p>Sesiones 3</p>
                         <a href="#" class="line_btn">Más información</a>
@@ -131,11 +124,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- /recepie_area_start  -->
 
     <!-- recepie_videos   -->
-    <div class="recepie_videoes_area">
+    <!-- <div class="recepie_videoes_area">
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-6">
@@ -166,11 +159,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--/ recepie_videos   -->
 
     <!-- dish_area start  -->
-    <div class="dish_area">
+    <!-- <div class="dish_area">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -200,11 +193,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--/ dish_area start  -->
 
     <!-- latest_trand     -->
-    <div class="latest_trand_area">
+    <!-- <div class="latest_trand_area">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -216,11 +209,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--/ latest_trand-->
 
     <!-- customer_feedback_area  -->
-    <div class="customer_feedback_area">
+    <!-- <div class="customer_feedback_area">
         <div class="container">
             <div class="row justify-content-center mb-50">
                 <div class="col-xl-9">
@@ -287,7 +280,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- / customer_feedback_area  -->
 
    
@@ -299,10 +292,10 @@
                         <div class="col-xl-2 col-md-6 col-lg-2">
                             <div class="footer_widget">
                                 <h3 class="footer_title">
-                                    Top Products
+                                    Admin
                                 </h3>
                                 <ul>
-                                    <li><a href="#">Managed Website</a></li>
+                                    <li><a href="crm">Office</a></li>
                                     <li><a href="#"> Manage Reputation</a></li>
                                     <li><a href="#">Power Tools</a></li>
                                     <li><a href="#">Marketing Service</a></li>

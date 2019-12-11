@@ -118,7 +118,7 @@
         <!-- Navigation -->
         <ul class="navbar-nav">
           <li class="nav-item  class=" active" ">
-          <a class=" nav-link active " href=" ./office"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
+          <a class=" nav-link active " href=" ./office"> <i class="fas fa-tachometer-alt"></i> Dashboard
             </a>
           </li>
           <li class="nav-item">
@@ -128,7 +128,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link " href="./examples/maps.html">
-              <i class="ni ni-favourite-28 text-orange"></i> Mascotas
+              <i class="fas fa-paw" style="color:#DDDDDD;"></i> Mascotas
             </a>
           </li>
           <li class="nav-item">
@@ -148,7 +148,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./examples/register.html">
-              <i class="ni ni-money-coins text-pink"></i>Finanzas
+              <i class="fas fa-money-bill-wave" style="color:green;"></i>Finanzas
             </a>
           </li>
         </ul>

@@ -22,3 +22,7 @@ Route::get('/office', function (){
 Route::get('/clients', function (){
     return view('office/clients/index');
 });
+
+Route::get('/schedules', function (){
+    return view('office/schedules/index');
+});

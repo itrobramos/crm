@@ -132,7 +132,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="./examples/tables.html">
+            <a class="nav-link " href="./schedules">
               <i class="ni ni-watch-time text-red"></i> Citas
             </a>
           </li>
@@ -201,12 +201,12 @@
     <!-- End Navbar -->
     <!-- Header -->
     <div class="header bg-gradient-primary pb-6 pt-3 pt-md-8">
-   
+
     </div>
     <div class="container-fluid mt--7">
-      
+
         @yield('content')
-    
+
     </div>
 </div>
   <!--   Core   -->
@@ -218,7 +218,7 @@
   <!--   Argon JS   -->
   <script src="dashboard/assets/js/argon-dashboard.min.js?v=1.1.0"></script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-  
+
 </body>
 
 </html>

@@ -14,7 +14,7 @@
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col">Name</th>
+                    <th scope="col">Nombre</th>
                     <th scope="col">Email</th>
                     <th scope="col">Último Servicio</th>
                     <th scope="col">Mascotas</th>
@@ -56,16 +56,12 @@
                         $ 100.00
                     </td>
                     <td>
-                      <button class="btn btn-icon btn-2 btn-primary btn-sm" type="button">
+                      <a href="./clients/1"><button class="btn btn-icon btn-2 btn-primary btn-sm" type="button">
                         <span class="btn-inner--icon"><i class="fas fa-eye"></i></span>
-                      </button>
-                      <button class="btn btn-icon btn-2 btn-default btn-sm" type="button">
-                        <span class="btn-inner--icon"><i class="fas fa-edit"></i></span>
-                      </button>
+                      </button></a>
                       <button class="btn btn-icon btn-2 btn-danger btn-sm" type="button">
                         <span class="btn-inner--icon"><i class="fas fa-trash-alt"></i></span>
                       </button>
-
                     </td>               
 
                   </tr>
@@ -102,12 +98,9 @@
                         $ 100.00
                     </td>
                     <td>
-                      <button class="btn btn-icon btn-2 btn-primary btn-sm" type="button">
+                      <a href="./clients/1"><button class="btn btn-icon btn-2 btn-primary btn-sm" type="button">
                         <span class="btn-inner--icon"><i class="fas fa-eye"></i></span>
-                      </button>
-                      <button class="btn btn-icon btn-2 btn-default btn-sm" type="button">
-                        <span class="btn-inner--icon"><i class="fas fa-edit"></i></span>
-                      </button>
+                      </button></a>
                       <button class="btn btn-icon btn-2 btn-danger btn-sm" type="button">
                         <span class="btn-inner--icon"><i class="fas fa-trash-alt"></i></span>
                       </button>

@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Adrian Hernandez</title>
 
-    <link rel="stylesheet" href="template/css/bootstrap.min.css">
-    <link rel="stylesheet" href="template/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="template/css/magnific-popup.css">
-    <link rel="stylesheet" href="template/css/font-awesome.min.css">
-    <link rel="stylesheet" href="template/css/themify-icons.css">
-    <link rel="stylesheet" href="template/css/nice-select.css">
-    <link rel="stylesheet" href="template/css/flaticon.css">
-    <link rel="stylesheet" href="template/css/gijgo.css">
-    <link rel="stylesheet" href="template/css/animate.min.css">
-    <link rel="stylesheet" href="template/css/slick.css">
-    <link rel="stylesheet" href="template/css/slicknav.css">
-    <link rel="stylesheet" href="template/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/themify-icons.css">
+    <link rel="stylesheet" href="/css/nice-select.css">
+    <link rel="stylesheet" href="/css/flaticon.css">
+    <link rel="stylesheet" href="/css/gijgo.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <link rel="stylesheet" href="/css/slick.css">
+    <link rel="stylesheet" href="/css/slicknav.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -67,7 +67,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="single_recepie text-center">
                         <div class="recepie_thumb">
-                            <img src="template/img/recepie/menu5.png" alt="">
+                            <img src="/img/recepie/menu5.png" alt="">
                         </div>
                         <!-- <h3>Comportamiento</h3> 
                         <span>Básico</span>
@@ -78,7 +78,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="single_recepie text-center">
                         <div class="recepie_thumb">
-                            <img src="template/img/recepie/menu2.png" alt="">
+                            <img src="/img/recepie/menu2.png" alt="">
                         </div>
                         <!-- <h3>Juegos</h3>
                         <span>Básico</span>
@@ -89,7 +89,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="single_recepie text-center">
                         <div class="recepie_thumb">
-                            <img src="template/img/recepie/menu4.png" alt="">
+                            <img src="/img/recepie/menu4.png" alt="">
                         </div>
                         <!-- <h3>Comidas</h3>
                         <span>Básico</span>
@@ -122,13 +122,13 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="videos_thumb">
                         <div class="big_img">
-                            <img src="template/img/video/big.png" alt="">
+                            <img src="/img/video/big.png" alt="">
                         </div>
                         <div class="small_thumb">
-                            <img src="template/img/video/small_1.png" alt="">
+                            <img src="/img/video/small_1.png" alt="">
                         </div>
                         <div class="small_thumb_2">
-                            <img src="template/img/video/2.png" alt="">
+                            <img src="/img/video/2.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -153,7 +153,7 @@
                     <div class="dish_wrap d-flex">
                         <div class="single_dish text-center">
                             <video width="320" height="240" controls>
-                                <source src="template/img/video/sesion1.mp4" type="video/mp4">
+                                <source src="/img/video/sesion1.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
@@ -164,7 +164,7 @@
                     <div class="dish_wrap d-flex">
                         <div class="single_dish text-center">
                             <video width="320" height="240" controls>
-                                <source src="template/img/video/sesion2.mp4" type="video/mp4">
+                                <source src="/img/video/sesion2.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
@@ -175,7 +175,7 @@
                     <div class="dish_wrap d-flex">
                         <div class="single_dish text-center">
                             <video width="320" height="240" controls>
-                                <source src="template/img/video/sesion3.mp4" type="video/mp4">
+                                <source src="/img/video/sesion3.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
@@ -219,7 +219,7 @@
                     <div class="dish_wrap d-flex">
                         <div class="single_dish text-center">
                             <video width="320" height="240" controls>
-                                <source src="template/img/testmonial/video1.mp4" type="video/mp4">
+                                <source src="/img/testmonial/video1.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
@@ -315,12 +315,12 @@
                 <div class="row align-items-center">
                     <div class="col-xl-8 col-md-8">
                         <p class="copy_right">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            <!-- Link back to Colorlib can't be removed.  is licensed under CC BY 3.0. -->
                             Copyright &copy;<script>
                             document.write(new Date().getFullYear());
-                            </script> All rights reserved | This template is made with <i class="fa fa-heart-o"
+                            </script> All rights reserved | This  is made with <i class="fa fa-heart-o"
                                 aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            <!-- Link back to Colorlib can't be removed.  is licensed under CC BY 3.0. -->
                         </p>
                     </div>
                     <div class="col-xl-4 col-md-4">
@@ -346,33 +346,33 @@
     <!--/ footer  -->
 
     <!-- JS here -->
-    <script src="template/template/js/vendor/modernizr-3.5.0.min.js"></script>
-    <script src="template/template/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="template/template/js/popper.min.js"></script>
-    <script src="template/template/js/bootstrap.min.js"></script>
-    <script src="template/template/js/owl.carousel.min.js"></script>
-    <script src="template/template/js/isotope.pkgd.min.js"></script>
-    <script src="template/template/js/ajax-form.js"></script>
-    <script src="template/template/js/waypoints.min.js"></script>
-    <script src="template/template/js/jquery.counterup.min.js"></script>
-    <script src="template/template/js/imagesloaded.pkgd.min.js"></script>
-    <script src="template/template/js/scrollIt.js"></script>
-    <script src="template/template/js/jquery.scrollUp.min.js"></script>
-    <script src="template/template/js/wow.min.js"></script>
-    <script src="template/template/js/nice-select.min.js"></script>
-    <script src="template/template/js/jquery.slicknav.min.js"></script>
-    <script src="template/template/js/jquery.magnific-popup.min.js"></script>
-    <script src="template/template/js/plugins.js"></script>
-    <script src="template/template/js/gijgo.min.js"></script>
+    <script src="//js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="//js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="//js/popper.min.js"></script>
+    <script src="//js/bootstrap.min.js"></script>
+    <script src="//js/owl.carousel.min.js"></script>
+    <script src="//js/isotope.pkgd.min.js"></script>
+    <script src="//js/ajax-form.js"></script>
+    <script src="//js/waypoints.min.js"></script>
+    <script src="//js/jquery.counterup.min.js"></script>
+    <script src="//js/imagesloaded.pkgd.min.js"></script>
+    <script src="//js/scrollIt.js"></script>
+    <script src="//js/jquery.scrollUp.min.js"></script>
+    <script src="//js/wow.min.js"></script>
+    <script src="//js/nice-select.min.js"></script>
+    <script src="//js/jquery.slicknav.min.js"></script>
+    <script src="//js/jquery.magnific-popup.min.js"></script>
+    <script src="//js/plugins.js"></script>
+    <script src="//js/gijgo.min.js"></script>
 
     <!--contact js-->
-    <script src="template/template/js/contact.js"></script>
-    <script src="template/template/js/jquery.ajaxchimp.min.js"></script>
-    <script src="template/template/js/jquery.form.js"></script>
-    <script src="template/template/js/jquery.validate.min.js"></script>
-    <script src="template/template/js/mail-script.js"></script>
+    <script src="//js/contact.js"></script>
+    <script src="//js/jquery.ajaxchimp.min.js"></script>
+    <script src="//js/jquery.form.js"></script>
+    <script src="//js/jquery.validate.min.js"></script>
+    <script src="//js/mail-script.js"></script>
 
-    <script src="template/template/js/main.js"></script>
+    <script src="//js/main.js"></script>
 
 
 </body>

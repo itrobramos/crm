@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Client;
 
 use Illuminate\Http\Request;
 
@@ -15,18 +16,22 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //$data[''] = User::orderBy('name','Asc')->get();
-        return view('office/clients/index',/*$data*/);
+        $data['clients'] = Client::all();
+        return view('office/clients/index',$data);
     }
 
-    public function show($id)
+    public function edit($id)
     {
-        //$card = Client::findOrFail($id);
-        //$data['card'] = $card;
-        //return view('card.show', $data);
-        return view('office/clients/show');
+        $client = Client::findOrFail($id);
+        //dd($data['client']->first_name);
+        return view('office/clients.edit', compact('client'));
+
     }
-        
+     
+    public function create()
+    {
+        return view('office/clients.create');
+    }
 
   
 }

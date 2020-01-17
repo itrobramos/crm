@@ -9,6 +9,10 @@
           <div class="card shadow">
             <div class="card-header border-0">
               <h3 class="mb-0">Clientes</h3>
+              <br>
+              <div class="col-1 text-right">
+                  <a href="{{ url('clients/create')}}" class="btn btn-sm btn-primary">Nuevo cliente</a>
+              </div>
             </div>
             <div class="table-responsive">
               <table class="table align-items-center table-flush">
@@ -23,26 +27,27 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach($clients as $client)
                   <tr>
                     <th scope="row">
                       <div class="media align-items-center">
                         <a href="#" class="avatar rounded-circle mr-3">
-                          <img alt="Image placeholder" src="dashboard/assets/img/theme/bootstrap.jpg">
+                          <img alt="Image placeholder" src="{{$client->avatar}}">
                         </a>
                         <div class="media-body">
-                          <span class="mb-0 text-sm">John Smith</span>
+                          <span class="mb-0 text-sm">{{$client->first_name}}  {{$client->last_name}}</span>
                         </div>
                       </div>
                     </th>
                     <td>
-                      john@mail.com
+                    {{$client->email}}
                     </td>
                     <td>
                       <span class="badge badge-dot mr-4">
-                        <i class="bg-warning"></i> Hace 5 meses
+                        <i class="bg-warning"></i>Pendiente Hace 5 meses
                       </span>
                     </td>
-                    <td>
+                    <td>Pendiente
                       <div class="avatar-group">
                         <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
                           <img alt="Image placeholder" src="dashboard/assets/img/theme/team-3-800x800.jpg" class="rounded-circle">
@@ -53,10 +58,10 @@
                       </div>
                     </td>
                     <td>
-                        $ 100.00
+                    Pendiente $ 100.00
                     </td>
                     <td>
-                      <a href="./clients/1"><button class="btn btn-icon btn-2 btn-primary btn-sm" type="button">
+                      <a href="./clients/{{$client->id}}/edit"><button class="btn btn-icon btn-2 btn-primary btn-sm" type="button">
                         <span class="btn-inner--icon"><i class="fas fa-eye"></i></span>
                       </button></a>
                       <button class="btn btn-icon btn-2 btn-danger btn-sm" type="button">
@@ -65,49 +70,9 @@
                     </td>               
 
                   </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <a href="#" class="avatar rounded-circle mr-3">
-                          <img alt="Image placeholder" src="dashboard/assets/img/theme/bootstrap.jpg">
-                        </a>
-                        <div class="media-body">
-                          <span class="mb-0 text-sm">John Smith</span>
-                        </div>
-                      </div>
-                    </th>
-                    <td>
-                      john@mail.com
-                    </td>
-                    <td>
-                      <span class="badge badge-dot mr-4">
-                        <i class="bg-warning"></i> Hace 5 meses
-                      </span>
-                    </td>
-                    <td>
-                      <div class="avatar-group">
-                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
-                          <img alt="Image placeholder" src="dashboard/assets/img/theme/team-3-800x800.jpg" class="rounded-circle">
-                        </a>
-                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">
-                          <img alt="Image placeholder" src="dashboard/assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
-                        </a>
-                      </div>
-                    </td>
-                    <td>
-                        $ 100.00
-                    </td>
-                    <td>
-                      <a href="./clients/1"><button class="btn btn-icon btn-2 btn-primary btn-sm" type="button">
-                        <span class="btn-inner--icon"><i class="fas fa-eye"></i></span>
-                      </button></a>
-                      <button class="btn btn-icon btn-2 btn-danger btn-sm" type="button">
-                        <span class="btn-inner--icon"><i class="fas fa-trash-alt"></i></span>
-                      </button>
-
-                    </td>               
-
-                  </tr>
+                  @endforeach
+                  
+                  
                   
                 </tbody>
               </table>

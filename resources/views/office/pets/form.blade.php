@@ -106,11 +106,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <!-- <div class="col-lg-4">
-                                <a href="../../clients/{{$pet->client->id}}/edit"><button
-                                        class="btn btn-md btn-primary">Información</button></a>
-
-                            </div> -->
+                            
                         </div>
                     </div>
                     <hr class="my-4">

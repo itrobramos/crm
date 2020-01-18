@@ -25,22 +25,23 @@
     <!-- Favicon -->
     <link href="../dashboard/assets/img/brand/favicon.png" rel="icon" type="image/png">
     <!-- Fonts -->
+
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- Icons -->
-    <link href="{{ URL::asset('/dashboard/assets/js/plugins/nucleo/css/nucleo.css') }}" rel="stylesheet" />
-    <link href="{{ URL::asset('/dashboard/assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
+    <link href="{{env('DEPLOY_URL')}}/dashboard/assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
+    <link href="{{env('DEPLOY_URL')}}/dashboard/assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
     <!-- CSS Files -->
-    <link href="{{ URL::asset('/dashboard/assets/css/argon-dashboard.css?v=1.1.0') }}" rel="stylesheet" />
+    <link href="{{env('DEPLOY_URL')}}/dashboard/assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
 
 
     <!--   Core   -->
-    <script src="{{ URL::asset('/dashboard/assets/js/plugins/jquery/dist/jquery.min.js')}}"></script>
-    <script src="{{ URL::asset('/dashboard/assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{env('DEPLOY_URL')}}/dashboard/assets/js/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/dashboard/assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!--   Optional JS   -->
-    <script src="{{ URL::asset('/dashboard/assets/js/plugins/chart.js/dist/Chart.min.js')}}"></script>
-    <script src="{{ URL::asset('/dashboard/assets/js/plugins/chart.js/dist/Chart.extension.js')}}"></script>
+    <script src="{{env('DEPLOY_URL')}}/dashboard/assets/js/plugins/chart.js/dist/Chart.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/dashboard/assets/js/plugins/chart.js/dist/Chart.extension.js"></script>
     <!--   Argon JS   -->
-    <script src="{{ URL::asset('/dashboard/assets/js/argon-dashboard.min.js?v=1.1.0')}}"></script>
+    <script src="{{env('DEPLOY_URL')}}/dashboard/assets/js/argon-dashboard.min.js?v=1.1.0')}}"></script>
     <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
 </head>
 
@@ -167,7 +168,7 @@
                             aria-expanded="false">
                             <div class="media align-items-center">
                                 <span class="avatar avatar-sm rounded-circle">
-                                    <img alt="Image placeholder" src="{{ URL::asset('/dashboard/assets/img/theme/team-4-800x800.jpg')}}">
+                                    <img alt="Image placeholder" src="{{env('DEPLOY_URL')}}dashboard/assets/img/theme/team-4-800x800.jpg')}}">
                                 </span>
                                 <div class="media-body ml-2 d-none d-lg-block">
                                     <span class="mb-0 text-sm  font-weight-bold">Nombre Admin</span>

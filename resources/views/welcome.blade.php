@@ -348,33 +348,33 @@
 
     <!-- JS here -->
 
-    <script src="{{env('DEPLOY_URL')}}/js/vendor/modernizr-3.5.0.min.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/popper.min.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/bootstrap.min.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/owl.carousel.min.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/isotope.pkgd.min.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/ajax-form.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/waypoints.min.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/jquery.counterup.min.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/imagesloaded.pkgd.min.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/scrollIt.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/jquery.scrollUp.min.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/wow.min.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/nice-select.min.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/jquery.slicknav.min.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/jquery.magnific-popup.min.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/plugins.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/gijgo.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/popper.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/bootstrap.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/owl.carousel.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/isotope.pkgd.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/ajax-form.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/waypoints.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/jquery.counterup.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/imagesloaded.pkgd.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/scrollIt.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/jquery.scrollUp.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/wow.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/nice-select.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/jquery.slicknav.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/jquery.magnific-popup.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/plugins.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/gijgo.min.js"></script>
 
     <!--contact js-->
-    <script src="{{env('DEPLOY_URL')}}/js/contact.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/jquery.ajaxchimp.min.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/jquery.form.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/jquery.validate.min.js"></script>
-    <script src="{{env('DEPLOY_URL')}}/js/mail-script.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/contact.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/jquery.ajaxchimp.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/jquery.form.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/jquery.validate.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/mail-script.js"></script>
 
-    <script src="{{env('DEPLOY_URL')}}/js/main.js"></script>
+    <script src="{{env('DEPLOY_URL')}}js/main.js"></script>
 
 
 </body>

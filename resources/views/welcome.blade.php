@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Adrian Hernandez</title>
 
-    <link rel="stylesheet" href="{{URL::asset('/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('/css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('/css/magnific-popup.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('/css/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('/css/themify-icons.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('/css/nice-select.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('/css/flaticon.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('/css/gijgo.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('/css/animate.min.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('/css/slick.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('/css/slicknav.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('/css/style.css')}}">
+    <link rel="stylesheet" href="{{env('DEPLOY_URL')}}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{env('DEPLOY_URL')}}/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="{{env('DEPLOY_URL')}}/css/magnific-popup.css">
+    <link rel="stylesheet" href="{{env('DEPLOY_URL')}}/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{env('DEPLOY_URL')}}/css/themify-icons.css">
+    <link rel="stylesheet" href="{{env('DEPLOY_URL')}}/css/nice-select.css">
+    <link rel="stylesheet" href="{{env('DEPLOY_URL')}}/css/flaticon.css">
+    <link rel="stylesheet" href="{{env('DEPLOY_URL')}}/css/gijgo.css">
+    <link rel="stylesheet" href="{{env('DEPLOY_URL')}}/css/animate.min.css">
+    <link rel="stylesheet" href="{{env('DEPLOY_URL')}}/css/slick.css">
+    <link rel="stylesheet" href="{{env('DEPLOY_URL')}}/css/slicknav.css">
+    <link rel="stylesheet" href="{{env('DEPLOY_URL')}}/css/style.css">
 </head>
 
 <body>
@@ -67,7 +67,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="single_recepie text-center">
                         <div class="recepie_thumb">
-                            <img src="{{URL::asset('/img/recepie/menu5.png')}}" alt="">
+                            <img src="{{env('DEPLOY_URL')}}/img/recepie/menu5.png" alt="">
                         </div>
                         <!-- <h3>Comportamiento</h3> 
                         <span>Básico</span>
@@ -78,7 +78,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="single_recepie text-center">
                         <div class="recepie_thumb">
-                            <img src="{{URL::asset('/img/recepie/menu2.png')}}" alt="">
+                            <img src="{{env('DEPLOY_URL')}}/img/recepie/menu2.png" alt="">
                         </div>
                         <!-- <h3>Juegos</h3>
                         <span>Básico</span>
@@ -89,7 +89,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="single_recepie text-center">
                         <div class="recepie_thumb">
-                            <img src="{{URL::asset('/img/recepie/menu4.png')}}" alt="">
+                            <img src="{{env('DEPLOY_URL')}}/img/recepie/menu4.png" alt="">
                         </div>
                         <!-- <h3>Comidas</h3>
                         <span>Básico</span>
@@ -345,34 +345,36 @@
     </footer>
     <!--/ footer  -->
 
+
     <!-- JS here -->
-    <script src="{{URL::asset('/js/vendor/modernizr-3.5.0.min.js')}}"></script>
-    <script src="{{URL::asset('/js/vendor/jquery-1.12.4.min.js')}}"></script>
-    <script src="{{URL::asset('/js/popper.min.js')}}"></script>
-    <script src="{{URL::asset('/js/bootstrap.min.js')}}"></script>
-    <script src="{{URL::asset('/js/owl.carousel.min.js')}}"></script>
-    <script src="{{URL::asset('/js/isotope.pkgd.min.js')}}"></script>
-    <script src="{{URL::asset('/js/ajax-form.js')}}"></script>
-    <script src="{{URL::asset('/js/waypoints.min.js')}}"></script>
-    <script src="{{URL::asset('/js/jquery.counterup.min.js')}}"></script>
-    <script src="{{URL::asset('/js/imagesloaded.pkgd.min.js')}}"></script>
-    <script src="{{URL::asset('/js/scrollIt.js')}}"></script>
-    <script src="{{URL::asset('/js/jquery.scrollUp.min.js')}}"></script>
-    <script src="{{URL::asset('/js/wow.min.js')}}"></script>
-    <script src="{{URL::asset('/js/nice-select.min.js')}}"></script>
-    <script src="{{URL::asset('/js/jquery.slicknav.min.js')}}"></script>
-    <script src="{{URL::asset('/js/jquery.magnific-popup.min.js')}}"></script>
-    <script src="{{URL::asset('/js/plugins.js')}}"></script>
-    <script src="{{URL::asset('/js/gijgo.min.js')}}"></script>
+
+    <script src="{{env('DEPLOY_URL')}}/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/popper.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/bootstrap.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/owl.carousel.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/isotope.pkgd.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/ajax-form.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/waypoints.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/jquery.counterup.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/imagesloaded.pkgd.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/scrollIt.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/jquery.scrollUp.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/wow.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/nice-select.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/jquery.slicknav.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/jquery.magnific-popup.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/plugins.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/gijgo.min.js"></script>
 
     <!--contact js-->
-    <script src="{{URL::asset('/js/contact.js')}}"></script>
-    <script src="{{URL::asset('/js/jquery.ajaxchimp.min.js')}}"></script>
-    <script src="{{URL::asset('/js/jquery.form.js')}}"></script>
-    <script src="{{URL::asset('/js/jquery.validate.min.js')}}"></script>
-    <script src="{{URL::asset('/js/mail-script.js')}}"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/contact.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/jquery.ajaxchimp.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/jquery.form.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/jquery.validate.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/mail-script.js"></script>
 
-    <script src="{{URL::asset('/js/main.js')}}"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/main.js"></script>
 
 
 </body>

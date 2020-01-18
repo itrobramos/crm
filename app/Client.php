@@ -8,4 +8,8 @@ class Client extends Model
 {
     public $timestamps = true;
     
+    public function Pets()
+    {
+        return $this->hasMany('App\Pet', 'clientId', 'id');
+    }
 }

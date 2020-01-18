@@ -32,9 +32,14 @@
     <!-- CSS Files -->
     <link href="dashboard/assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
 
+    <!-- Icons -->
+    <link href="{{ URL::asset('/dashboard/assets/js/plugins/nucleo/css/nucleo.css') }}" rel="stylesheet" />
+    <link href="{{ URL::asset('/dashboard/assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link href="{{ URL::asset('/dashboard/assets/css/argon-dashboard.css?v=1.1.0') }}" rel="stylesheet" />
 
-    <script src="../dashboard/assets/js/plugins/jquery/dist/jquery.min.js"></script>
-    <script src="../dashboard/assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
@@ -122,26 +127,26 @@
                 <!-- Navigation -->
                 <ul class="navbar-nav">
                     <li class="nav-item  class=" active" ">
-          <a class=" nav-link active " href=" ./office"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
+          <a class=" nav-link active " href="{{ url('office')}}"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="./clients">
+                        <a class="nav-link " href="{{ url('clients')}}">
                             <i class="ni ni-single-02 text-blue"></i> Clientes
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="./pets">
+                        <a class="nav-link " href="{{ url('pets')}}">
                             <i class="fas fa-paw" style="color:#DDDDDD;"></i> Mascotas
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="./appointments">
+                        <a class="nav-link " href="{{ url('appointments')}}">
                             <i class="ni ni-watch-time text-red"></i> Citas
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./finances">
+                        <a class="nav-link" href="{{ url('finances')}}">
                             <i class="fas fa-money-bill-wave" style="color:green;"></i>Finanzas
                         </a>
                     </li>

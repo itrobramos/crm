@@ -126,26 +126,25 @@
                 <!-- Navigation -->
                 <ul class="navbar-nav">
                     <li class="nav-item  class=" active" ">
-          <a class=" nav-link active " href=" ./office"> <i class="fas fa-tachometer-alt"></i> Dashboard
-                        </a>
+                        <a class=" nav-link active " href="{{ url('office')}}"> <i class="fas fa-tachometer-alt"></i> Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="./clients">
+                        <a class="nav-link " href="{{ url('clients')}}">
                             <i class="ni ni-single-02 text-blue"></i> Clientes
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="./pets">
+                        <a class="nav-link " href="{{ url('pets')}}">
                             <i class="fas fa-paw" style="color:#DDDDDD;"></i> Mascotas
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="./appointments">
+                        <a class="nav-link " href="{{ url('appointments')}}">
                             <i class="ni ni-watch-time text-red"></i> Citas
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./finances">
+                        <a class="nav-link" href="{{ url('finances')}}">
                             <i class="fas fa-money-bill-wave" style="color:green;"></i>Finanzas
                         </a>
                     </li>

@@ -67,7 +67,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="single_recepie text-center">
                         <div class="recepie_thumb">
-                            <img src="/img/recepie/menu5.png" alt="">
+                            <img src="{{URL::asset('/img/recepie/menu5.png')}}" alt="">
                         </div>
                         <!-- <h3>Comportamiento</h3> 
                         <span>Básico</span>
@@ -78,7 +78,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="single_recepie text-center">
                         <div class="recepie_thumb">
-                            <img src="/img/recepie/menu2.png" alt="">
+                            <img src="{{URL::asset('/img/recepie/menu2.png')}}" alt="">
                         </div>
                         <!-- <h3>Juegos</h3>
                         <span>Básico</span>
@@ -89,7 +89,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="single_recepie text-center">
                         <div class="recepie_thumb">
-                            <img src="/img/recepie/menu4.png" alt="">
+                            <img src="{{URL::asset('/img/recepie/menu4.png')}}" alt="">
                         </div>
                         <!-- <h3>Comidas</h3>
                         <span>Básico</span>

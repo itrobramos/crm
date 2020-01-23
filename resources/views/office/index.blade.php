@@ -345,7 +345,7 @@
                             <table class="table align-items-center table-flush">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th scope="col">Fecha</th>
+                                        <th scope="col">Fecha Cita</th>
                                         <th scope="col">Hora</th>
                                         <th scope="col">Cliente</th>
                                         <th scope="col"></th>

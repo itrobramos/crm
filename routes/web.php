@@ -6,8 +6,6 @@ Route::get('/adrian-hernandez', function () {return view('welcomea');});
 
 Route::get('/', function () {return view('welcome');});
 
-Route::get('/appointments', function (){return view('office/appointments/index');});
-
 Route::get('/finances', function (){return view('office/finances/index');});
 Route::get('/finances/{id}', "FinancesController@show");
 
@@ -32,4 +30,6 @@ Route::patch('/pets/{id}','PetController@update');
 Route::delete('/pets/{id}', 'PetController@destroy');
 
 //Appointments
-Route::get('/appointments/create/{date}',"AppointmentController@create");
+Route::get('/appointments', 'AppointmentController@index');
+Route::get('/appointments/create/{date}','AppointmentController@create');
+Route::post('/appointments', 'AppointmentController@store');

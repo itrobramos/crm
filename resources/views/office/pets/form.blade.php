@@ -61,7 +61,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-birth_date">Fecha Nacimiento</label>
-                                    <input type="text" id="input-birth_date" name="birth_date"
+                                    <input type="date" id="input-birth_date" name="birth_date"
                                         class="form-control form-control-alternative datepicker"
                                         value="{{ isset($pet->birth_date)?$pet->birth_date:""}}">
                                 </div>
@@ -121,14 +121,8 @@
         </div>
     </div>
 </div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js">
-</script>
 
 <script type="text/javascript">
-$(function() {
-    $('.datepicker').datepicker();
-});
 
 function readURL(input) {
 

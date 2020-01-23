@@ -15872,6 +15872,10 @@ a.btn-icon-only {
   margin-bottom: 1rem;
 }
 
+#imgavatar{
+  max-height: 200px !important;
+}
+
 .footer .nav .nav-item .nav-link,
 .footer .footer-link {
   color: #8898aa !important;
@@ -15880,6 +15884,15 @@ a.btn-icon-only {
 .footer .nav .nav-item .nav-link:hover,
 .footer .footer-link:hover {
   color: #525f7f !important;
+}
+
+.nav-control{
+  height: 60px;
+  vertical-align: center;
+  text-align: center;
+  background-color: #D4DCFF;
+  color:white;
+  font-size:22px;
 }
 
 .footer .list-unstyled li a {

@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Client;
+use App\Pet;
 use Illuminate\Support\Facades\File;
-
 use Illuminate\Http\Request;
+use Config;
 
 class ClientController extends Controller
 {
@@ -24,14 +25,19 @@ class ClientController extends Controller
     public function edit($id)
     {
         $client = Client::findOrFail($id);
-        //dd($data['client']->first_name);
-        return view('office/clients.edit', compact('client'));
+        $pets = Pet::where("clientId",$id)->get();
+        foreach($pets as $pet){
+            $pet->avatar= asset($pet->avatar);
+        }
+
+        return view('office/clients.edit', compact('client'),compact('pets'));
 
     }
      
     public function create()
     {
-        return view('office/clients.create');
+        $pets = null;
+        return view('office/clients.create', compact('pets'));
     }
 
     public function store(Request $request){
@@ -43,13 +49,10 @@ class ClientController extends Controller
         $Client->genre = $request->genre;
         
         $Client->email = $request->email;
-        $Client->phone1 = $request->phone1;
         $Client->phone2 = $request->phone2;
 
         $Client->address = $request->address;
-        $Client->postal_code = $request->postal_code;
         $Client->city = $request->city;
-        $Client->country = $request->country;
         $Client->notes = $request->notes;
 
         if($request->hasfile('avatar')) 
@@ -75,13 +78,10 @@ class ClientController extends Controller
         $Client->genre = $request->genre;
         
         $Client->email = $request->email;
-        $Client->phone1 = $request->phone1;
         $Client->phone2 = $request->phone2;
 
         $Client->address = $request->address;
-        $Client->postal_code = $request->postal_code;
         $Client->city = $request->city;
-        $Client->country = $request->country;
         $Client->notes = $request->notes;
 
         

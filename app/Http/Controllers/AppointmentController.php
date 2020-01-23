@@ -23,8 +23,20 @@ class AppointmentController extends Controller
         return view('office/appointments/index',$data);
     }
 
-     public function create($date)
+    public function view($id)
     {
+        $appointment = Appointment::findOrFail($id);
+        return view('office/appointments/view',compact('appointment'));
+    }
+
+    public function create(Request $request)
+    {
+        $date = $request['date'];
+
+        if($request['date'] == null)
+            $date = NOW();
+
+
         $pets = Pet::orderBy('name')->get();
         return view('office/appointments/create',compact('pets'), compact('date'));
     }
@@ -40,9 +52,6 @@ class AppointmentController extends Controller
         $Appointment->notes = $request->notes;
 
         $Appointment->save();
-
         return redirect('appointments')->with('Message','Appointment created successfully');
     }
-
-
 }

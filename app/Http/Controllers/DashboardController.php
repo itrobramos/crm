@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Appointment;
 use App\User;
 use App\Client;
 use App\Pet;
@@ -20,6 +21,9 @@ class DashboardController extends Controller
     {
         $data['clients'] = Client::all()->count();
         $data['pets'] = Pet::all()->count();
+        $data['appointments'] = Appointment::where('date', '>=', NOW())->get();
+
+        // dd($data['appointments']->count());
 
         return view('office/index',$data);
     }

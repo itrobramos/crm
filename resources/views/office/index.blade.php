@@ -26,7 +26,7 @@
     <link href="dashboard/assets/img/brand/favicon.png" rel="icon" type="image/png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-    
+
     <!-- Icons -->
     <link href="{{ URL::asset('/dashboard/assets/js/plugins/nucleo/css/nucleo.css') }}" rel="stylesheet" />
     <link href="{{ URL::asset('/dashboard/assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
@@ -246,7 +246,7 @@
                                         <div class="row">
                                             <div class="col">
                                                 <h5 class="card-title text-uppercase text-muted mb-0">Citas</h5>
-                                                <span class="h2 font-weight-bold mb-0">Pendiente</span>
+                                                <span class="h2 font-weight-bold mb-0">{{$appointments->count()}}</span>
                                             </div>
                                             <div class="col-auto">
                                                 <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -352,34 +352,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">
-                                            05-01-2020
-                                        </th>
-                                        <td>
-                                            10:00
-                                        </td>
-                                        <td>
-                                            John Smith
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-sm">Detalles</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            05-01-2020
-                                        </th>
-                                        <td>
-                                            12:00
-                                        </td>
-                                        <td>
-                                            Adam Simons
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-sm">Detalles</button>
-                                        </td>
-                                    </tr>
+                                    @foreach($appointments as $appointment)
+                                        <tr>
+                                            <th scope="row">
+                                                {{$appointment->date}}
+                                            </th>
+                                            <td>
+                                                {{$appointment->time}}
+                                            </td>
+                                            <td>
+                                                {{$appointment->Pet->Client->first_name}}
+                                                {{$appointment->Pet->Client->last_name}}
+                                            </td>
+                                            <td>
+                                                <a href = "{{url('appointments')}}/{{$appointment->id}}"><button class="btn btn-sm">Detalles</button></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
 

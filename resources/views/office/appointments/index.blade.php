@@ -15,18 +15,18 @@ $(document).ready(function() {
         events: [{
             start: '2020-01-10T10:00:00',
             end: '2020-01-10T16:00:00',
-            textColor: 'white',   
+            textColor: 'white',
             color:"#5E72E4",
             title: "Cliente / mascota"
         }],
         select: function(start, end, jsEvent, view) {
             // start contains the date you have selected
-            // end contains the end date. 
+            // end contains the end date.
             // Caution: the end date is exclusive (new since v2).
             var allDay = !start.hasTime() && !end.hasTime();
             if (confirm(["¿Desea agendar una cita el: " + moment(start).format() + " ?"]) ==
                 true)
-                window.location.href = "/appointments/create/" + moment(start).format();
+                window.location.href = "/appointments/create?date=" + moment(start).format();
         }
     });
 

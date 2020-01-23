@@ -31,5 +31,7 @@ Route::delete('/pets/{id}', 'PetController@destroy');
 
 //Appointments
 Route::get('/appointments', 'AppointmentController@index');
-Route::get('/appointments/create/{date}','AppointmentController@create');
+Route::get('/appointments/create','AppointmentController@create');
+Route::get('/appointments/{id}', "AppointmentController@view");
+// Route::get('/appointments/create/{date?}','AppointmentController@create');
 Route::post('/appointments', 'AppointmentController@store');

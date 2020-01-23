@@ -6,12 +6,14 @@ Route::get('/adrian-hernandez', function () {return view('welcomea');});
 
 Route::get('/', function () {return view('welcome');});
 
-Route::get('/office', function (){return view('office/index');});
 Route::get('/appointments', function (){return view('office/appointments/index');});
 
 Route::get('/finances', function (){return view('office/finances/index');});
 Route::get('/finances/{id}', "FinancesController@show");
 
+
+//Dashboard
+Route::get('/office', "DashboardController@index");
 
 // Clientes
 Route::get('/clients', "ClientController@index");
@@ -28,3 +30,6 @@ Route::get('/pets/{id}/edit', "PetController@edit");
 Route::post('/pets', 'PetController@store');
 Route::patch('/pets/{id}','PetController@update');
 Route::delete('/pets/{id}', 'PetController@destroy');
+
+//Appointments
+Route::get('/appointments/create/{date}',"AppointmentController@create");

@@ -74,9 +74,9 @@ class PetController extends Controller
             $file = $request->file('avatar');
             $extension = $file->getPetOriginalExtension(); // getting image extension
             $filename =time().'.'.$extension;
-            $file->move('uploads/images/', $filename);
+            $file->move('public/uploads/images/', $filename);
             File::delete($Pet->avatar);
-            $Pet->avatar = 'uploads/images/'. $filename;
+            $Pet->avatar = 'public/uploads/images/'. $filename;
         }
 
         $Pet->save();

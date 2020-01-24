@@ -109,9 +109,9 @@ class ClientController extends Controller
             $file = $request->file('avatar');
             $extension = $file->getClientOriginalExtension(); // getting image extension
             $filename =time().'.'.$extension;
-            $file->move('uploads/images/', $filename);
+            $file->move('public/uploads/images/', $filename);
             File::delete($Client->avatar);
-            $Client->avatar = 'uploads/images/'. $filename;
+            $Client->avatar = 'public/uploads/images/'. $filename;
         }
 
         $Client->save();

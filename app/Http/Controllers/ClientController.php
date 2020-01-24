@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Appointment;
 use App\User;
 use App\Client;
 use App\Pet;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Config;
-
+ 
 class ClientController extends Controller
 {
     /**
@@ -25,13 +26,31 @@ class ClientController extends Controller
     public function edit($id)
     {
         $client = Client::findOrFail($id);
-        $pets = Pet::where("clientId",$id)->get();
+        $pets = Pet::where("clientId",$id)->with("Appointments")->get();        
+        $appointments = [];
+
+        $data['client'] =$client;
+        $data['pets'] = $pets;
+
         foreach($pets as $pet){
-            $pet->avatar= asset($pet->avatar);
+            
+        $futureAppointments = Appointment::where('petId', $pet->id)->orderBy('date','desc')->get(); 
+            foreach($futureAppointments as $app){
+                $appointments[] = [
+                    "date" => $app->date,
+                    "time" => $app->time,
+                    "pet" => $pet->name,
+                    "status" => $app->status,
+                    "notes" => $app->notes,
+                    "comments" => $app->clientComments
+                ];
+            }
         }
 
-        return view('office/clients.edit', compact('client'),compact('pets'));
 
+        $data['appointments'] = $appointments;
+
+        return view('office/clients.edit', $data);
     }
      
     public function create()

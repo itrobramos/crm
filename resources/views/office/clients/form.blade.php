@@ -25,7 +25,7 @@
                         role="tab" aria-controls="nav-pets" aria-selected="false">Mascotas</a>
                     <a class="nav-item nav-control nav-link" id="nav-appointments-tab" data-toggle="tab"
                         href="#nav-appointments" role="tab" aria-controls="nav-appointments"
-                        aria-selected="false">Citas</a>
+                        aria-selected="false">Historial Citas</a>
                 </div>
             </nav>
 
@@ -198,8 +198,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @if ($pets != null)}}
+                                @if ($pets != null)
                                 @foreach($pets as $pet)
+
                                 <tr>
                                     <th scope="row">
                                         <div class="media align-items-center">
@@ -229,43 +230,114 @@
 
                 <!--CITAS TAB-->
                 <div class="tab-pane fade" id="nav-appointments" role="tabpanel" aria-labelledby="nav-appointments-tab">
-                    Pendiente
+
+                    <div class="card bg-secondary shadow">
+
+                        <br>
+
+                        @if ($appointments != null)
+                        @foreach ($appointments as $appointment)
+
+
+                        <div class="card-body">
+
+                            <div class="">
+                                <div class="pl-lg-4 danger">
+
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-group focused">
+                                                <label class="form-control-label" for="input-first_name">Fecha / Hora
+                                                </label>
+                                                <input type='text' class='form-control'
+                                                    value='{{$appointment["date"]}}  / {{$appointment["time"]}}'
+                                                    disabled>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-last_name">Mascota</label>
+                                                <input type='text' class='form-control' value='{{$appointment["pet"]}}'
+                                                    disabled>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-last_name">Estatus</label>
+
+                                                <select name="status" class='form-control'>
+                                                    <option value="propuesta">Propuesta</option>
+                                                    <option value="aceptada">Aceptada</option>
+                                                    <option value="cancelada">Cancelada</option>
+                                                    <option value="finalizada">Finalizada</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-last_name">Comentarios
+                                                    previos</label>
+                                                <textarea class='form-control'
+                                                    disabled>{{$appointment["notes"]}}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-last_name">Comentarios
+                                                    posteriores</label>
+                                                <textarea class='form-control'>{{$appointment["comments"]}}</textarea>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class='text-right'>
+                                    <a href="{{ url('clients')}}" class='btn btn-warning btn-md'>Enviar</a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr><br>
+                        @endforeach
+                        @endif
+
+                    </div>
                 </div>
-
-
-
-
             </div>
-        </div>
-    </div>
 
-    <script type="text/javascript">
-    function readURL(input) {
+            <script type="text/javascript">
+            function readURL(input) {
 
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
 
-            reader.onload = function(e) {
-                $('#imgavatar').attr('src', e.target.result);
+                    reader.onload = function(e) {
+                        $('#imgavatar').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+
             }
-            reader.readAsDataURL(input.files[0]);
-        }
 
-    }
+            $("#avatar").change(function() {
+                $("#avatar").hide();
+                readURL(this);
+            });
 
-    $("#avatar").change(function() {
-        $("#avatar").hide();
-        readURL(this);
-    });
+            $("#btnSave").click(function(e) {
 
-    $("#btnSave").click(function(e) {
-
-        var name = $("#input-first_name").val();
-        var last_name = $("#input-last_name").val();
-        if (name == '' || last_name == '') {
-            e.preventDefault();
-            alert("Nombre y apellido son datos obligatorios");
-        }
-    });
-    </script>
-    @endsection
+                var name = $("#input-first_name").val();
+                var last_name = $("#input-last_name").val();
+                if (name == '' || last_name == '') {
+                    e.preventDefault();
+                    alert("Nombre y apellido son datos obligatorios");
+                }
+            });
+            </script>
+            @endsection

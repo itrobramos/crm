@@ -12,4 +12,9 @@ class Pet extends Model
     {
         return $this->belongsTo('App\Client', 'clientId', 'id');
     }
+
+    public function Appointments()
+    {
+        return $this->hasMany('App\Appointment', 'id', 'petId');
+    }
 }

@@ -345,7 +345,7 @@
                             <table class="table align-items-center table-flush">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th scope="col">Fecha Cita</th>
+                                        <th scope="col">Fecha</th>
                                         <th scope="col">Hora</th>
                                         <th scope="col">Cliente</th>
                                         <th scope="col"></th>
@@ -365,7 +365,7 @@
                                                 {{$appointment->Pet->Client->last_name}}
                                             </td>
                                             <td>
-                                                <a href = "{{url('appointments')}}/{{$appointment->id}}"><button class="btn btn-sm">Detalles</button></a>
+                                                <a href = "{{url('appointments')}}/{{$appointment->id}}"><button class="btn btn-sm btn-primary">Detalles</button></a>
                                             </td>
                                         </tr>
                                     @endforeach

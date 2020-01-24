@@ -30,7 +30,7 @@ class PetController extends Controller
         return view('office/pets.edit', $data);
 
     }
-     
+
     public function create()
     {
         $data['clients'] = Client::orderBy("first_name")->get();
@@ -46,14 +46,14 @@ class PetController extends Controller
         $Pet->genre = $request->genre;
         $Pet->clientId = $request->clientId;
 
-        if($request->hasfile('avatar')) 
-        { 
+        if($request->hasfile('avatar'))
+        {
             $file = $request->file('avatar');
             $extension = $file->getClientOriginalExtension(); // getting image extension
             $filename =time().'.'.$extension;
-            $file->move('uploads/images/', $filename);
+            $file->move('public/uploads/images/', $filename);
             File::delete($Pet->avatar);
-            $Pet->avatar = 'uploads/images/'. $filename;
+            $Pet->avatar = 'public/uploads/images/'. $filename;
         }
 
         $Pet->save();
@@ -69,8 +69,8 @@ class PetController extends Controller
         $Pet->genre = $request->genre;
         $Pet->clientId = $request->clientId;
 
-        if($request->hasfile('avatar')) 
-        { 
+        if($request->hasfile('avatar'))
+        {
             $file = $request->file('avatar');
             $extension = $file->getPetOriginalExtension(); // getting image extension
             $filename =time().'.'.$extension;

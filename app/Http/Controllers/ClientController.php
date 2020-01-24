@@ -9,7 +9,7 @@ use App\Pet;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Config;
- 
+
 class ClientController extends Controller
 {
     /**
@@ -26,15 +26,15 @@ class ClientController extends Controller
     public function edit($id)
     {
         $client = Client::findOrFail($id);
-        $pets = Pet::where("clientId",$id)->with("Appointments")->get();        
+        $pets = Pet::where("clientId",$id)->with("Appointments")->get();
         $appointments = [];
 
         $data['client'] =$client;
         $data['pets'] = $pets;
 
         foreach($pets as $pet){
-            
-        $futureAppointments = Appointment::where('petId', $pet->id)->orderBy('date','desc')->get(); 
+
+        $futureAppointments = Appointment::where('petId', $pet->id)->orderBy('date','desc')->get();
             foreach($futureAppointments as $app){
                 $appointments[] = [
                     "date" => $app->date,
@@ -52,7 +52,7 @@ class ClientController extends Controller
 
         return view('office/clients.edit', $data);
     }
-     
+
     public function create()
     {
         $pets = null;
@@ -66,7 +66,7 @@ class ClientController extends Controller
         $Client->last_name = $request->last_name;
         $Client->birth_date = $request->birth_date;
         $Client->genre = $request->genre;
-        
+
         $Client->email = $request->email;
         $Client->phone2 = $request->phone2;
 
@@ -74,14 +74,14 @@ class ClientController extends Controller
         $Client->city = $request->city;
         $Client->notes = $request->notes;
 
-        if($request->hasfile('avatar')) 
-        { 
+        if($request->hasfile('avatar'))
+        {
             $file = $request->file('avatar');
             $extension = $file->getClientOriginalExtension(); // getting image extension
             $filename =time().'.'.$extension;
-            $file->move('uploads/images/', $filename);
+            $file->move('public/uploads/images/', $filename);
             File::delete($Client->avatar);
-            $Client->avatar = 'uploads/images/'. $filename;
+            $Client->avatar = 'public/uploads/images/'. $filename;
         }
 
         $Client->save();
@@ -95,7 +95,7 @@ class ClientController extends Controller
         $Client->last_name = $request->last_name;
         $Client->birth_date = $request->birth_date;
         $Client->genre = $request->genre;
-        
+
         $Client->email = $request->email;
         $Client->phone2 = $request->phone2;
 
@@ -103,9 +103,9 @@ class ClientController extends Controller
         $Client->city = $request->city;
         $Client->notes = $request->notes;
 
-        
-        if($request->hasfile('avatar')) 
-        { 
+
+        if($request->hasfile('avatar'))
+        {
             $file = $request->file('avatar');
             $extension = $file->getClientOriginalExtension(); // getting image extension
             $filename =time().'.'.$extension;

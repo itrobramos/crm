@@ -54,4 +54,25 @@ class AppointmentController extends Controller
         $Appointment->save();
         return redirect('appointments')->with('Message','Appointment created successfully');
     }
+
+    public function getList(){
+
+        
+        $Appointments = Appointment::all();
+        $List[] = [];
+
+        foreach($Appointments as $Appointment){
+
+            $List = [
+
+                "start" => $Appointment->date,
+                "textColor" => "white",
+                "color" => "#5E72E4",
+                "title" => $Appointment->pet->client->first_name . " / " . $Appointment->pet->name
+            ];
+        }
+
+        return response($List,200);
+
+    }
 }

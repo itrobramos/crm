@@ -19,7 +19,21 @@ class AppointmentController extends Controller
 
     public function index()
     {
-        $data['appointments'] = Appointment::all();
+        $Appointments = Appointment::all();
+        $List = [];
+
+        foreach($Appointments as $Appointment){
+
+            $List[] = [
+
+                "start" => $Appointment->date,
+                "textColor" => "white",
+                "color" => "#5E72E4",
+                "title" => $Appointment->pet->client->first_name . " / " . $Appointment->pet->name
+            ];
+        }
+
+        $data['appointments'] = $List;
         return view('office/appointments/index',$data);
     }
 
@@ -57,7 +71,7 @@ class AppointmentController extends Controller
 
     public function getList(){
 
-        
+
         $Appointments = Appointment::all();
         $List[] = [];
 

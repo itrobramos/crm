@@ -56,7 +56,8 @@ class ClientController extends Controller
     public function create()
     {
         $pets = null;
-        return view('office/clients.create', compact('pets'));
+        $appointments = null;
+        return view('office/clients.create', compact('pets'), compact('appointments'));
     }
 
     public function store(Request $request){

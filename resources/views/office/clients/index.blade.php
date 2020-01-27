@@ -66,7 +66,7 @@
                                     {{ method_field('DELETE')}}
                                     <a href="./clients/{{$client->id}}/edit"><button
                                             class="btn btn-icon btn-2 btn-primary btn-sm" type="button">
-                                            <span class="btn-inner--icon"><i class="fas fa-eye"></i></span>
+                                            <span class="btn-inner--icon"><i class="fas fa-edit"></i></span>
                                         </button></a>
                                     <!-- <input type="submit" onclick="return confirm('Are you sure?');" value="Delete" class='btn btn-sm btn-danger'>    -->
                                     <button class="btn btn-icon btn-2 btn-danger btn-sm" type="submit"

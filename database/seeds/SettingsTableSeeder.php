@@ -13,35 +13,35 @@ class SettingsTableSeeder extends Seeder
     public function run()
     {
         DB::table('settings')->insert([
-            'name' => "Duración Cita",
+            'name' => "Duracion_Cita",
             'value' => "60",
             'category' => "Global",
             'input' => "number"
             ]);
 
         DB::table('settings')->insert([
-            'name' => "Color Cancelada",
+            'name' => "Cancelada",
             'value' => "#000",
             'category' => "Color Citas",
             'input' => "color"
             ]);
 
         DB::table('settings')->insert([
-            'name' => "Color Aceptada",
+            'name' => "Aceptada",
             'value' => "#000",
             'category' => "Color Citas",
             'input' => "color"
             ]);
 
         DB::table('settings')->insert([
-            'name' => "Color Finalizada",
+            'name' => "Finalizada",
             'value' => "#000",
             'category' => "Color Citas",
             'input' => "color"
             ]);
 
         DB::table('settings')->insert([
-            'name' => "Color Pendiente",
+            'name' => "Pendiente",
             'value' => "#000",
             'category' => "Color Citas",
             'input' => "color"

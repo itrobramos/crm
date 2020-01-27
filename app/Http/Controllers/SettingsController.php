@@ -23,8 +23,6 @@ class SettingsController extends Controller
 
     public function update(Request $request)
     {
-        // $var = "Aceptada";
-        // dd($request->$var);
 
         $Settings = Setting::all();
 

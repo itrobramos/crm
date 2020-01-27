@@ -5,6 +5,7 @@ use App\Appointment;
 use App\User;
 use App\Client;
 use App\Pet;
+use App\Setting;
 use Illuminate\Support\Facades\File;
 
 use Illuminate\Http\Request;
@@ -25,13 +26,14 @@ class AppointmentController extends Controller
         foreach($Appointments as $Appointment){
 
             $List[] = [
-
+                "id" => $Appointment->id,
                 "start" => $Appointment->date,
                 "textColor" => "white",
-                "color" => "#5E72E4",
+                "color" => Setting::where('name',$Appointment->status)->first()->value,
                 "title" => $Appointment->pet->client->first_name . " / " . $Appointment->pet->name
             ];
         }
+
 
         $data['appointments'] = $List;
         return view('office/appointments/index',$data);
@@ -67,6 +69,22 @@ class AppointmentController extends Controller
 
         $Appointment->save();
         return redirect('appointments')->with('Message','Appointment created successfully');
+    }
+
+    public function update(Request $request){
+
+        $Appointment = Appointment::findOrFail($request->id);
+        $Appointment->type = $request->type;
+        $Appointment->time = $request->time;
+        $Appointment->date = $request->date;
+        $Appointment->notes = $request->notes;
+        $Appointment->status = $request->status;
+        
+
+        $Appointment->save();
+        return redirect('appointments')->with('Message','Appointment updated successfully');
+        return view('appointments');
+
     }
 
     public function getList(){

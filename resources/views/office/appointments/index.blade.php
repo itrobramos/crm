@@ -13,13 +13,17 @@ $(document).ready(function() {
         selectable: true,
 
         events: [
-            @foreach ($appointments as $appointment)
-            {
-                title : '{{ $appointment["title"] }}',
-                start : '{{ $appointment["start"] }}',
+            @foreach($appointments as $appointment) {
+                id: '{{ $appointment["id"]}}',
+                title: '{{ $appointment["title"] }}',
+                start: '{{ $appointment["start"] }}',
+                color: '{{ $appointment["color"] }}'
             },
             @endforeach
         ],
+        eventClick: function(event) {
+            window.location.href = "/appointments/" + event.id;
+        },
         select: function(start, end, jsEvent, view) {
             var allDay = !start.hasTime() && !end.hasTime();
             if (confirm(["¿Desea agendar una cita el: " + moment(start).format() + " ?"]) ==

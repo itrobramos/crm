@@ -46,6 +46,18 @@ class SettingsTableSeeder extends Seeder
             'category' => "Color Citas",
             'input' => "color"
             ]);
+        DB::table('settings')->insert([
+            'name' => "Cliente_Inactivo",
+            'value' => "90",
+            'category' => "Tiempo",
+            'input' => "number"
+            ]);
+        DB::table('settings')->insert([
+            'name' => "Hora_Envio_Cumpleanos",
+            'value' => "09:00",
+            'category' => "Tiempo",
+            'input' => "time"
+            ]);
 
     }
 }

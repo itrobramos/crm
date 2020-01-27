@@ -52,11 +52,11 @@
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-status">Estatus</label>
                                                 <select class='form-control' name="status">
-                                                <option value='pendiente' @if ($appointment->status == 'pendiente')
+                                                <option value='Pendiente' @if ($appointment->status == 'Pendiente')
                                                     selected @endif >Pendiente</option>
-                                                <option value='confirmada' @if ($appointment->status == 'confirmada')
-                                                    selected @endif >Confirmada</option>
-                                                <option value='cancelada' @if ($appointment->status == 'cancelada')
+                                                <option value='Aceptada' @if ($appointment->status == 'Aceptada')
+                                                    selected @endif >Aceptada</option>
+                                                <option value='Cancelada' @if ($appointment->status == 'Cancelada')
                                                     selected @endif >Cancelada</option>
                                                 <option value='Finalizada' @if ($appointment->status == 'Finalizada')
                                                     selected @endif >Finalizada</option>

@@ -28,7 +28,6 @@ class AppointmentController extends Controller
             $List[] = [
                 "id" => $Appointment->id,
                 "start" => $Appointment->date,
-                "textColor" => "white",
                 "color" => Setting::where('name',$Appointment->status)->first()->value,
                 "title" => $Appointment->pet->client->first_name . " / " . $Appointment->pet->name
             ];
@@ -66,6 +65,7 @@ class AppointmentController extends Controller
         $Appointment->petId = $request->petId;
         $Appointment->type = $request->type;
         $Appointment->notes = $request->notes;
+        $Appointment->status = "Aceptada";
 
         $Appointment->save();
         return redirect('appointments')->with('Message','Appointment created successfully');
@@ -87,24 +87,4 @@ class AppointmentController extends Controller
 
     }
 
-    public function getList(){
-
-
-        $Appointments = Appointment::all();
-        $List[] = [];
-
-        foreach($Appointments as $Appointment){
-
-            $List = [
-
-                "start" => $Appointment->date,
-                "textColor" => "white",
-                "color" => "#5E72E4",
-                "title" => $Appointment->pet->client->first_name . " / " . $Appointment->pet->name
-            ];
-        }
-
-        return response($List,200);
-
-    }
 }

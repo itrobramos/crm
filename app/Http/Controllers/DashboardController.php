@@ -22,7 +22,7 @@ class DashboardController extends Controller
         date_default_timezone_set('America/Monterrey');
         $data['clients'] = Client::all()->count();
         $data['pets'] = Pet::all()->count();
-        $data['appointments'] = Appointment::where('date', '>=', NOW())->orderBy('date','asc')->orderBy('time','asc')->get()->take(5);
+        $data['appointments'] = Appointment::where('date', '>=', NOW())->whereIn('status',['Aceptada','Pendiente'])->orderBy('date','asc')->orderBy('time','asc')->get()->take(5);
 
         return view('office/index',$data);
     }

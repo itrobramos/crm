@@ -35,3 +35,9 @@ Route::get('/appointments/create','AppointmentController@create');
 Route::get('/appointments/{id}', "AppointmentController@view");
 // Route::get('/appointments/create/{date?}','AppointmentController@create');
 Route::post('/appointments', 'AppointmentController@store');
+Route::patch('/appointments/{id}', 'AppointmentController@update');
+
+
+//Settings
+Route::get('/settings', 'SettingsController@index');
+Route::patch('/settings/', 'SettingsController@update');

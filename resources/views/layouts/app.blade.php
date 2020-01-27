@@ -149,6 +149,12 @@
                             <i class="fas fa-money-bill-wave" style="color:green;"></i>Finanzas
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('settings')}}">
+                            <i class="fas fa-cogs" style="color:black;"></i>Configuración
+                        </a>
+                    </li>
+
                 </ul>
                 <!-- Divider -->
             </div>

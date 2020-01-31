@@ -9,6 +9,7 @@ use App\Pet;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Config;
+use Carbon\Carbon;
 
 class ClientController extends Controller
 {
@@ -19,7 +20,32 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $data['clients'] = Client::all();
+        $Clients = Client::all();
+        $LastAppointmentDate = date("Y-m-d");
+
+        foreach($Clients as $Client){
+
+            $pets = Pet::where("clientId",$Client->id)->with("Appointments")->get();
+
+            foreach($pets as $pet){
+                $LastAppointment = Appointment::where('petId', $pet->id)->orderBy('date','asc')->first();
+
+                if($LastAppointment != null){
+                    if(strtotime($LastAppointment->date) < strtotime($LastAppointmentDate)){
+                        $var = $LastAppointment->date;
+                    }
+                    $LastAppointmentDate = strtotime($LastAppointment->date);
+                }
+            }
+
+            $LastAppointmentDate = (date('Y-m-d', $LastAppointmentDate));
+
+            dd($LastAppointmentDate->date_diff(date("Y-m-d")));
+            $Client["lastService"] = $LastAppointmentDate->diff(date("Y-m-d"));
+
+            $Client["lastService"] = Carbon::now()->subDays(5)->diffForHumans();
+        }
+        $data['clients'] = $Clients;
         return view('office/clients/index',$data);
     }
 

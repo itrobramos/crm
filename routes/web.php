@@ -40,6 +40,6 @@ Route::get('/settings', 'SettingsController@index');
 Route::patch('/settings/', 'SettingsController@update');
 
 //Finances
-Route::get('/finances', 'financeController@index');
-Route::get('/finances/create',"financeController@create");
-Route::post('/finances', 'financeController@store');
+Route::get('/finances', 'FinanceController@index');
+Route::get('/finances/create',"FinanceController@create");
+Route::post('/finances', 'FinanceController@store');

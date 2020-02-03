@@ -6,6 +6,7 @@ use App\Appointment;
 use App\User;
 use App\Client;
 use App\Pet;
+use App\Setting;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Config;
@@ -20,32 +21,45 @@ class ClientController extends Controller
      */
     public function index()
     {
+        date_default_timezone_set('America/Monterrey');
+
         $Clients = Client::all();
-        $LastAppointmentDate = date("Y-m-d");
+
 
         foreach($Clients as $Client){
 
             $pets = Pet::where("clientId",$Client->id)->with("Appointments")->get();
+            $Inactividad = Setting::where('name','Cliente_Inactivo')->first();
+            $Inactividad = $Inactividad->value;
+
+            $petIds = [];
 
             foreach($pets as $pet){
-                $LastAppointment = Appointment::where('petId', $pet->id)->orderBy('date','asc')->first();
-
-                if($LastAppointment != null){
-                    if(strtotime($LastAppointment->date) < strtotime($LastAppointmentDate)){
-                        $var = $LastAppointment->date;
-                    }
-                    $LastAppointmentDate = strtotime($LastAppointment->date);
-                }
+                $petIds[] = ["Id" => $pet->id];
             }
 
-            $LastAppointmentDate = (date('Y-m-d', $LastAppointmentDate));
+            $data = Appointment::whereIn('petId', $petIds)
+                    ->where('date','<=',NOW())
+                    ->orderBy('date','desc')
+                    ->first();
+                
 
-            dd($LastAppointmentDate->date_diff(date("Y-m-d")));
-            $Client["lastService"] = $LastAppointmentDate->diff(date("Y-m-d"));
 
-            $Client["lastService"] = Carbon::now()->subDays(5)->diffForHumans();
+            if($data != null){
+                $now = time(); // or your date as well
+                $datediff = $now - strtotime($data->date);            
+                $datediff =  round($datediff / (60 * 60 * 24));
+                $Client["lastService"] = Carbon::now()->subDays($datediff)->diffForHumans();   
+                $Client["lastServiceDays"] = $datediff;   
+
+            }
+            else
+                $Client["lastService"] = "Inactivo";
+
         }
+
         $data['clients'] = $Clients;
+        $data['Inactividad'] = $Inactividad;
         return view('office/clients/index',$data);
     }
 

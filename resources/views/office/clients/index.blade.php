@@ -44,7 +44,13 @@
                             </td>
                             <td>
                                 <span class="badge badge-dot mr-4">
-                                    <i class="bg-warning"></i>Pendiente Hace 5 meses
+                                    @if ($client->lastService == 'Inactivo')
+                                        <i class="bg-danger"></i>{{$client->lastService}}
+                                    @elseif ($client->lastServiceDays >= $Inactividad )
+                                        <i class="bg-warning"></i>{{$client->lastService}}
+                                    @else
+                                        <i class="bg-success"></i>{{$client->lastService}}
+                                    @endif
                                 </span>
                             </td>
                             <td>

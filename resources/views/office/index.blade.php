@@ -270,7 +270,7 @@
                                         <div class="row">
                                             <div class="col">
                                                 <h5 class="card-title text-uppercase text-muted mb-0">Ingresos</h5>
-                                                <span class="h2 font-weight-bold mb-0">Pendiente</span>
+                                                <span class="h2 font-weight-bold mb-0">${{$ingresos}}</span>
                                             </div>
                                             <div class="col-auto">
                                                 <div class="icon icon-shape bg-info text-white rounded-circle shadow">
@@ -388,7 +388,7 @@
                         <div class="card-header border-0">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h3 class="mb-0">Ingresos $</h3>
+                                    <h3 class="mb-0">Reporte Ingresos / Egresos </h3>
                                 </div>
                                 <div class="col text-right">
                                     <a href="#!" class="btn btn-sm btn-primary">Ver todas</a>
@@ -396,47 +396,59 @@
                             </div>
                         </div>
                         <div id="myfirstchart" style="height: 250px;"></div>
+
                     </div>
                 </div>
 
             </div>
 
+
             <hr>
         </div>
     </div>
+
+    
     <!--   Core   -->
 
     </body>
 
 </html>
 
+
+
 <script type="text/javascript">
-new Morris.Line({
-    element: 'myfirstchart',
-    data: [{
-            date: '2019-11-02',
-            value: 25
-        },
-        {
-            date: '2019-11-08',
-            value: 40
-        },
-        {
-            date: '2019-11-10',
-            value: 5
-        },
-        {
-            date: '2019-11-14',
-            value: 5
-        },
-        {
-            date: '2019-11-17',
-            value: 42
-        }
+
+
+var data = [
+
+    @foreach ($finances as $finance)
+    { 
+        date: "{{$finance->date}}"
+        @if($finance->type == 'I')
+            , ingresos: {{$finance->amount}}
+        @else 
+            , egresos: {{$finance->amount}}
+        @endif,
+    },
+    @endforeach
+
     ],
-    xkey: 'date',
-    ykeys: ['value'],
-    labels: ['Value'],
-    xLabels: 'date'
-});
+    config = {
+      data: data,
+      xkey: 'date',
+      ykeys: ['ingresos', 'egresos'],
+      labels: ['ingresos', 'egresos'],
+      fillOpacity: 0.6,
+      hideHover: 'auto',
+      behaveLikeLine: true,
+      resize: true,
+      pointFillColors:['#ffffff'],
+      pointStrokeColors: ['black'],
+      lineColors:['green','red']
+  };
+config.element = 'myfirstchart';
+Morris.Line(config);
+
+
+
 </script>

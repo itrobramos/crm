@@ -127,6 +127,8 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="text-right">
+                                                <a href="{{ url('finances/create') . '?appointmentid=' . $appointment->id }}"
+                                                    class='btn btn-primary btn-md'>Registrar Ingreso / Egreso</a>
                                                 <a href="{{ url('appointments')}}"
                                                     class='btn btn-primary btn-md'>Regresar</a>
                                                 <input type="submit" id="btnSave" class='btn btn-success btn-md'

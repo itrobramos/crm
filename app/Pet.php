@@ -15,6 +15,7 @@ class Pet extends Model
 
     public function Appointments()
     {
-        return $this->hasMany('App\Appointment', 'id', 'petId');
+        return $this->hasMany('App\Appointment', 'petId', 'id');
     }
+
 }

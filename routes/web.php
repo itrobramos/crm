@@ -6,9 +6,6 @@ Route::get('/adrian-hernandez', function () {return view('welcomea');});
 
 Route::get('/', function () {return view('welcome');});
 
-Route::get('/finances', function (){return view('office/finances/index');});
-Route::get('/finances/{id}', "FinancesController@show");
-
 
 //Dashboard
 Route::get('/office', "DashboardController@index");
@@ -41,3 +38,8 @@ Route::patch('/appointments/{id}', 'AppointmentController@update');
 //Settings
 Route::get('/settings', 'SettingsController@index');
 Route::patch('/settings/', 'SettingsController@update');
+
+//Finances
+Route::get('/finances', 'financeController@index');
+Route::get('/finances/create',"financeController@create");
+Route::post('/finances', 'financeController@store');

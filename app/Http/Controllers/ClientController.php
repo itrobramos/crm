@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Appointment;
-use App\User;
 use App\Client;
+use App\Finance;
 use App\Pet;
+use App\User;
 use App\Setting;
+
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Config;
@@ -28,6 +30,9 @@ class ClientController extends Controller
 
         foreach($Clients as $Client){
 
+            $Client["Ingresos"] = 0;
+            $Client["Egresos"] = 0;
+
             $pets = Pet::where("clientId",$Client->id)->with("Appointments")->get();
             $Inactividad = Setting::where('name','Cliente_Inactivo')->first();
             $Inactividad = $Inactividad->value;
@@ -36,6 +41,18 @@ class ClientController extends Controller
 
             foreach($pets as $pet){
                 $petIds[] = ["Id" => $pet->id];
+
+                $Appointments = Appointment::where('petId',$pet->id)->get();
+
+                foreach($Appointments as $Appointment){
+                    if($Appointment->finances != null){
+                        foreach($Appointment->finances as $finance )
+                            if($finance->type = "E")
+                                $Client["Ingresos"] = $Client["Ingresos"] + $finance->amount;
+                            else
+                                $Client["Egresos"] = $Client["Egresos"] + $finance->amount;
+                        }
+                }
             }
 
             $data = Appointment::whereIn('petId', $petIds)
@@ -51,13 +68,15 @@ class ClientController extends Controller
                 $datediff =  round($datediff / (60 * 60 * 24));
                 $Client["lastService"] = Carbon::now()->subDays($datediff)->diffForHumans();   
                 $Client["lastServiceDays"] = $datediff;   
-
             }
             else
                 $Client["lastService"] = "Inactivo";
 
+
+            $Client["Total"] = $Client["Ingresos"] - $Client["Egresos"];
         }
 
+        
         $data['clients'] = $Clients;
         $data['Inactividad'] = $Inactividad;
         return view('office/clients/index',$data);

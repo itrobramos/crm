@@ -10,78 +10,60 @@
             <div class="card-header border-0">
                 <h3 class="mb-0">Finanzas</h3>
             </div>
+            <div class="col-1 text-right">
+                <a href="{{ url('finances/create')}}" class="btn btn-sm btn-primary">Nuevo registro</a>
+            </div>
+            <br>
             <div class="table-responsive">
                 <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">Fecha</th>
                             <th scope="col">Cliente</th>
+                            <th scope="col">Motivo</th>
                             <th scope="col">Ingresos</th>
                             <th scope="col">Egresos</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($finances as $finance)
                         <tr>
                             <th scope="row">
                                 <div class="media align-items-center">
                                     <div class="media-body">
-                                        <span class="mb-0 text-sm">2020-01-03</span>
+                                        <span class="mb-0 text-sm">{{$finance->date}}</span>
                                     </div>
                                 </div>
                             </th>
                             <td>
-                                John Smith
+                                {{$finance->client}}
+                            </td>
+                            <td>
+                                {{$finance->motive}}
                             </td>
                             <td>
                                 <span class="badge badge-dot mr-4">
-                                    <i class="bg-success"></i> $ 800.00
+
+                                    @if ($finance->type == "I")<i class="bg-success"></i>
+                                    $ {{$finance->amount}}
+                                    @endif
                                 </span>
                             </td>
                             <td>
                                 <span class="badge badge-dot mr-4">
-                                    <i class="bg-warning"></i> $ 200.00
+                                    @if ($finance->type == "E")<i class="bg-warning"></i>
+                                    $ {{$finance->amount}}
+                                    @endif
                                 </span>
-                            </td>
-                            <td>
-                                <a href="./finances/1"><button class="btn btn-icon btn-2 btn-primary btn-sm"
-                                        type="button">
-                                        <span class="btn-inner--icon"><i class="fas fa-eye"></i></span>
-                                    </button></a>
                             </td>
                         </tr>
-                        <tr>
-                            <th scope="row">
-                                <div class="media align-items-center">
-                                    <div class="media-body">
-                                        <span class="mb-0 text-sm">2020-01-03</span>
-                                    </div>
-                                </div>
-                            </th>
-                            <td>
-                                John Smith
-                            </td>
-                            <td>
-                                <span class="badge badge-dot mr-4">
-                                    <i class="bg-success"></i> $ 800.00
-                                </span>
-                            </td>
-                            <td>
-                                <span class="badge badge-dot mr-4">
-                                    <i class="bg-warning"></i> $ 200.00
-                                </span>
-                            </td>
-                            <td>
-                                <a href="./finances/1"><button class="btn btn-icon btn-2 btn-primary btn-sm"
-                                        type="button">
-                                        <span class="btn-inner--icon"><i class="fas fa-eye"></i></span>
-                                    </button></a>
-                            </td>
-                        </tr>
+                        @endforeach
 
                     </tbody>
                 </table>
             </div>
+            <!--
             <div class="card-footer py-4">
                 <nav aria-label="...">
                     <ul class="pagination justify-content-end mb-0">
@@ -107,6 +89,7 @@
                     </ul>
                 </nav>
             </div>
+-->
         </div>
     </div>
 </div>

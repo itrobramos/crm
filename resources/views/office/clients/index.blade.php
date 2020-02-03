@@ -64,7 +64,7 @@
                                 </div>
                             </td>
                             <td>
-                                Pendiente $ 100.00
+                                $ {{$client->Total}}
                             </td>
                             <td class="text-left">
                                 <form method='post' action="{{ url('/clients/' . $client->id) }}">

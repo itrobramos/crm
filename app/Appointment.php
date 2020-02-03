@@ -12,4 +12,9 @@ class Appointment extends Model
     {
         return $this->belongsTo('App\Pet', 'petId', 'id');
     }
+    public function Finances()
+    {
+        return $this->hasMany('App\Finance', 'appointmentId', 'id');
+    }
+
 }

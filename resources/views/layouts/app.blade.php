@@ -126,7 +126,7 @@
                 </form>
                 <!-- Navigation -->
                 <ul class="navbar-nav">
-                    <li class="nav-item  class=" active" ">
+                    <li class="nav-item  class=" active>
                         <a class=" nav-link active " href="{{ url('office')}}"> <i class="fas fa-tachometer-alt"></i> Dashboard</a>
                     </li>
                     <li class="nav-item">

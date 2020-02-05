@@ -302,7 +302,7 @@
                                     <h2 class="mb-0">Notificaciones</h2>
                                 </div>
                                 <div class="col text-right">
-                                    <a href="#!" class="btn btn-sm btn-primary">Ver todas</a>
+                                    <a href="{{ url('notifications')}}" class="btn btn-sm btn-primary">Ver todas</a>
                                 </div>
                             </div>
                         </div>

@@ -43,3 +43,6 @@ Route::patch('/settings/', 'SettingsController@update');
 Route::get('/finances', 'FinanceController@index');
 Route::get('/finances/create',"FinanceController@create");
 Route::post('/finances', 'FinanceController@store');
+
+//Notifications
+Route::get('/notifications', 'NotificationController@index');

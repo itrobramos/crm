@@ -150,6 +150,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ url('notifications')}}">
+                            <i class="fas fa-bell" style="color:orange;"></i>Notificaciones
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ url('settings')}}">
                             <i class="fas fa-cogs" style="color:black;"></i>Configuración
                         </a>

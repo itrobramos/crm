@@ -21,13 +21,10 @@
                         @foreach ($notifications as $notification)
                         <tr>
                             <td>
-                                {{$notification->text}}icon
+                                <span class="{{$notification->icon}}"></span>
                             </td>
                             <td>
-                                {{$notification->id}}text
-                            </td>
-                            <td>
-                                {{$notification->notificationtype}}date
+                                {{$notification->text}}
                             </td>
                         </tr>
                         @endforeach

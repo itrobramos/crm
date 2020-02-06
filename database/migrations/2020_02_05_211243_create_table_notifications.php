@@ -18,12 +18,22 @@ class CreateTableNotifications extends Migration
             $table->string('text');
             $table->date('date')->nullable();
             $table->biginteger('notificationTypeId')->unsigned()->nullable();
+            $table->biginteger('clientId')->unsigned()->nullable();
+            $table->biginteger('petId')->unsigned()->nullable();
             $table->timestamps();
         });
 
 
         Schema::table('notifications', function (Blueprint $table){
             $table->foreign('notificationTypeId')->references('id')->on('notification_types')->onDelete('cascade');
+        });
+
+        Schema::table('notifications', function (Blueprint $table){
+            $table->foreign('clientId')->references('id')->on('clients')->onDelete('cascade');
+        });
+
+        Schema::table('notifications', function (Blueprint $table){
+            $table->foreign('petId')->references('id')->on('pets')->onDelete('cascade');
         });
     }
 

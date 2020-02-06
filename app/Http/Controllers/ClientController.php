@@ -26,7 +26,7 @@ class ClientController extends Controller
         date_default_timezone_set('America/Monterrey');
 
         $Clients = Client::all();
-
+        $Inactividad = Setting::where('name','Cliente_Inactivo')->first()->value;
 
         foreach($Clients as $Client){
 
@@ -34,8 +34,6 @@ class ClientController extends Controller
             $Client["Egresos"] = 0;
 
             $pets = Pet::where("clientId",$Client->id)->with("Appointments")->get();
-            $Inactividad = Setting::where('name','Cliente_Inactivo')->first();
-            $Inactividad = $Inactividad->value;
 
             $petIds = [];
 
@@ -60,7 +58,6 @@ class ClientController extends Controller
                     ->orderBy('date','desc')
                     ->first();
                 
-
 
             if($data != null){
                 $now = time(); // or your date as well

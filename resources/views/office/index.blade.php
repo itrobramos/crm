@@ -311,26 +311,17 @@
                                 <thead class="thead-light">
                                     <tr>
                                         <th scope="col">Mensaje</th>
-                                        <th scope="col">Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($notifications as $notification)
                                     <tr>
-                                        <th scope="row">
-                                            Llamar a cliente: John Smith, 3 meses sin servicio
-                                        </th>
-                                        <td>
-                                            <button class="btn btn-sm btn-danger">Eliminar</button>
+                                        <td scope="row" title="{{$notification->text}}">
+                                            {{substr($notification->text,0,60)}}...
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            Cumpleaños de "Goffy", mascota de Adam Simons
-                                        </th>
-                                        <td>
-                                            <button class="btn btn-sm btn-danger">Eliminar</button>
-                                        </td>
-                                    </tr>
+                                    @endforeach
+                                   
                                 </tbody>
                             </table>
 

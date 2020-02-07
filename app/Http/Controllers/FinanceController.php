@@ -92,8 +92,8 @@ class FinanceController extends Controller
         $data['anual_finances_tab'] = $YearTab;
 
         //Month
-        $MonthGraph = DB::select('select year(date) year, month(date) month, type, COALESCE(sum(amount),0) total from finances group by year(date), month(date), type');
-        $Months = DB::select('select year(date) year, month(date) month from finances group by year(date), month(date)');
+        $MonthGraph = DB::select('select year(date) year, month(date) month, type, COALESCE(sum(amount),0) total from finances where date >= DATE_SUB(NOW(),INTERVAL 1 YEAR) group by year(date), month(date), type');
+        $Months = DB::select('select year(date) year, month(date) month from finances where date >= DATE_SUB(NOW(),INTERVAL 1 YEAR) group by year(date), month(date)');
         $MonthTab = [];
 
         foreach($Months as $Month){
@@ -120,6 +120,38 @@ class FinanceController extends Controller
 
         $data['month_finances'] = $MonthGraph;
         $data['month_finances_tab'] = $MonthTab;
+
+        //Week
+        $WeekGraph = DB::select('select year(date) year, week(date) week, type, COALESCE(sum(amount),0) total from finances where date >= DATE_SUB(NOW(),INTERVAL 1 YEAR) group by year(date), week(date), type');
+        $Weeks = DB::select('select year(date) year, week(date) week from finances where date >= DATE_SUB(NOW(),INTERVAL 1 YEAR) group by year(date), week(date)');
+        $WeekTab = [];
+
+        foreach($Weeks as $Week){
+            $query = "select year(date) year, week(date) week, sum(amount) total from finances where type = 'I' AND week(date) = " . $Week->week . " AND year(date) = " . $Week->year . " group by year(date), week(date)";
+
+            $ingresos = DB::select($query);
+
+            if($ingresos == null)
+                $ingresos = 0;
+            else
+                $ingresos = $ingresos[0]->total;
+
+            $query = "select year(date) year, week(date) week, sum(amount) total from finances where type = 'E' AND week(date) = " . $Week->week . " AND year(date) = " . $Week->year . " group by year(date), week(date)";
+
+            $egresos = DB::select($query);
+
+            if($egresos == null)
+                $egresos = 0;
+            else
+                $egresos = $egresos[0]->total;
+
+            $WeekTab[] = ["year" => $Week->year, "week" => $Week->week, "ingresos" => $ingresos, "egresos" => $egresos, "total" =>  $ingresos - $egresos ];
+        }
+
+
+        $data['week_finances'] = $WeekGraph;
+        $data['week_finances_tab'] = $WeekTab;
+
 
         return view('office/finances/reports', $data);
     }

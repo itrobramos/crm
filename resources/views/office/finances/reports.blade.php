@@ -26,12 +26,33 @@
 
             <div class="tab-content" id="nav-tabContent">
 
-                <div class="tab-pane fade show active" id="nav-semanal" role="tabpanel"
-                    aria-labelledby="nav-semanal-tab">
+                <div class="tab-pane fade show active" id="nav-semanal" role="tabpanel" aria-labelledby="nav-semanal-tab">
+                    <center><div id="weekgraph" style="height: 250px; width:600px;"></div></center>
+
+                    <br>                    <br>                    <br>
+
+                    <table class='table align-items-center table-flush'>
+                        <thead class="thead-light">
+                            <th>Año</th>
+                            <th>Semana</th>
+                            <th>Ingresos</th>
+                            <th>Egresos</th>
+                            <th>Balance</th>
+                        </thead>
+                        @foreach($week_finances_tab as $item)
+                        <tr>
+                            <td>{{$item['year']}}</td>
+                            <td>{{$item['week']}}</td>
+                            <td>{{$item['ingresos']}}</td>
+                            <td>{{$item['egresos']}}</td>
+                            <td>{{$item['total']}}</td>
+                        </tr>
+                        @endforeach
+                    </table>
+
                 </div>
 
-                <div class="tab-pane fade show" id="nav-mensual" role="tabpanel"
-                    aria-labelledby="nav-mensual-tab">
+                <div class="tab-pane fade show" id="nav-mensual" role="tabpanel" aria-labelledby="nav-mensual-tab">
 
                     <center><div id="monthgraph" style="height: 250px; width:600px;"></div></center>
 
@@ -79,6 +100,7 @@
                         @endforeach
                     </table>
                 </div>
+
                 <br>
             </div>
 
@@ -141,6 +163,33 @@ var data = [
     barColors:['#B2E882','#F43A4B']
     };
     config.element = 'monthgraph';
+    Morris.Bar(config);
+
+
+
+    var data = [
+        @foreach ($week_finances_tab as $finance)
+        {
+            y: '{{$finance["year"]}}-{{$finance["week"]}}',
+            a: {{$finance["ingresos"]}},
+            b: {{$finance["egresos"]}}
+        },
+        @endforeach
+    ],
+    config = {
+    data: data,
+    xkey: 'y',
+    ykeys: ['a', 'b'],
+    labels: ['Ingresos', 'Egresos'],
+    fillOpacity: 0.6,
+    hideHover: 'auto',
+    behaveLikeLine: true,
+    resize: true,
+    pointFillColors:['#ffffff'],
+    pointStrokeColors: ['black'],
+    barColors:['#B2E882','#F43A4B']
+    };
+    config.element = 'weekgraph';
     Morris.Bar(config);
 
 

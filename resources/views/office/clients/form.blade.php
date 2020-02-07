@@ -15,7 +15,7 @@
 <div class="row">
 
     <div class="col">
-        <div class="card shadow">
+        <div class="card shadow"> 
 
             <nav>
                 <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">

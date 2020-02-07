@@ -10,10 +10,11 @@
             <div class="card-header border-0">
                 <h3 class="mb-0">Finanzas</h3>
             </div>
-            <div class="col-1 text-right">
+            <div class="col-4">
                 <a href="{{ url('finances/create')}}" class="btn btn-sm btn-primary">Nuevo registro</a>
+                <a href="{{ url('finances/reports')}}" class="btn btn-sm btn-warning">Ver Reportes</a>
             </div>
-            <br>
+           <br>
             <div class="table-responsive">
                 <table class="table align-items-center table-flush">
                     <thead class="thead-light">

@@ -7,6 +7,7 @@ use App\Client;
 use App\Finance;
 use App\Pet;
 use App\User;
+use DB;
 
 use Illuminate\Http\Request;
 
@@ -68,6 +69,29 @@ class FinanceController extends Controller
 
         $Finance->save();
         return redirect('finances')->with('Message','Finances created successfully');
+    }
+
+    public function reports(){
+
+        $YearGraph = DB::select('select year(date) year, type, sum(amount) total from finances group by year(date), type');
+        $Years = DB::select('select year(date) year from finances group by year(date)');
+
+        $YearTab = [];
+
+        foreach($Years as $Year){
+            $query = "select year(date) year, sum(amount) total from finances where type = 'I' AND year(date) = " . $Year->year . " group by year(date)";
+            $ingresos = DB::select($query);
+
+            $query = 'select year(date) year, sum(amount) total from finances where type = "E" AND year(date) = ' . $Year->year . ' group by year(date)';
+            $egresos = DB::select($query);
+
+            $YearTab[] = ["year" => $Year, "ingresos" => $ingresos[0]->total, "egresos" => $egresos[0]->total, "total" =>  $ingresos[0]->total - $egresos[0]->total ];
+        }
+
+        $data['anual_finances'] = $YearGraph;
+        $data['anual_finances_tab'] = $YearTab;
+
+        return view('office/finances/reports', $data);
     }
 
 }

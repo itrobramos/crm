@@ -47,3 +47,8 @@ Route::get('/finances/reports', 'FinanceController@reports');
 
 //Notifications
 Route::get('/notifications', 'NotificationController@index');
+
+//Emails
+Route::get('/emails', 'EmailController@index');
+Route::get('/emails/{id}/edit', "EmailController@edit");
+Route::patch('/emails/{id}', 'EmailController@update');

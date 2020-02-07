@@ -161,6 +161,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ url('emails')}}">
+                            <i class="fas fa-envelope" style="color:blue;"></i>Emails
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ url('settings')}}">
                             <i class="fas fa-cogs" style="color:black;"></i>Configuración
                         </a>

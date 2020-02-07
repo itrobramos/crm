@@ -33,9 +33,6 @@
     <!-- CSS Files -->
     <link href="{{ URL::asset('/dashboard/assets/css/argon-dashboard.css?v=1.1.0') }}" rel="stylesheet" />
 
-
-
-
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
@@ -122,8 +119,7 @@
                 <!-- Navigation -->
                 <ul class="navbar-nav">
                     <li class="nav-item  class=" active" ">
-          <a class=" nav-link active " href="{{ url('office')}}"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
-                        </a>
+                        <a class=" nav-link active " href="{{ url('office')}}"> <i class="ni ni-tv-2 text-primary"></i> Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="{{ url('clients')}}">
@@ -148,6 +144,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('notifications')}}">
                             <i class="fas fa-bell" style="color:orange;"></i>Notificaciones
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('emails')}}">
+                            <i class="fas fa-envelope" style="color:blue;"></i>Emails
                         </a>
                     </li>
                     <li class="nav-item">
@@ -321,7 +322,7 @@
                                         </td>
                                     </tr>
                                     @endforeach
-                                   
+
                                 </tbody>
                             </table>
 

@@ -41,14 +41,14 @@ class FinanceController extends Controller
         //return view('card.show', $data);
         return view('office/finances/show');
     }
-        
+
 
     public function create(Request $Request)
     {
 
         if(isset($Request->appointmentid)){
-            $data['appointmentId'] = $Request->appointmentid; 
-            $data['date'] = Appointment::find($Request->appointmentid)->select('date')->first()->date; 
+            $data['appointmentId'] = $Request->appointmentid;
+            $data['date'] = Appointment::find($Request->appointmentid)->select('date')->first()->date;
         }
 
         $data['appointments'] = Appointment::get();
@@ -73,9 +73,9 @@ class FinanceController extends Controller
 
     public function reports(){
 
+        //Year
         $YearGraph = DB::select('select year(date) year, type, sum(amount) total from finances group by year(date), type');
         $Years = DB::select('select year(date) year from finances group by year(date)');
-
         $YearTab = [];
 
         foreach($Years as $Year){
@@ -90,6 +90,36 @@ class FinanceController extends Controller
 
         $data['anual_finances'] = $YearGraph;
         $data['anual_finances_tab'] = $YearTab;
+
+        //Month
+        $MonthGraph = DB::select('select year(date) year, month(date) month, type, COALESCE(sum(amount),0) total from finances group by year(date), month(date), type');
+        $Months = DB::select('select year(date) year, month(date) month from finances group by year(date), month(date)');
+        $MonthTab = [];
+
+        foreach($Months as $Month){
+            $query = "select year(date) year, month(date) month, sum(amount) total from finances where type = 'I' AND month(date) = " . $Month->month . " AND year(date) = " . $Month->year . " group by year(date), month(date)";
+
+            $ingresos = DB::select($query);
+
+            if($ingresos == null)
+                $ingresos = 0;
+            else
+                $ingresos = $ingresos[0]->total;
+
+            $query = "select year(date) year, month(date) month, sum(amount) total from finances where type = 'E' AND month(date) = " . $Month->month . " AND year(date) = " . $Month->year . " group by year(date), month(date)";
+
+            $egresos = DB::select($query);
+
+            if($egresos == null)
+                $egresos = 0;
+            else
+                $egresos = $egresos[0]->total;
+
+            $MonthTab[] = ["year" => $Month->year, "month" => $Month->month, "ingresos" => $ingresos, "egresos" => $egresos, "total" =>  $ingresos - $egresos ];
+        }
+
+        $data['month_finances'] = $MonthGraph;
+        $data['month_finances_tab'] = $MonthTab;
 
         return view('office/finances/reports', $data);
     }

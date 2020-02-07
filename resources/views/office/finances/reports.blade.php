@@ -32,13 +32,36 @@
 
                 <div class="tab-pane fade show" id="nav-mensual" role="tabpanel"
                     aria-labelledby="nav-mensual-tab">
+
+                    <center><div id="monthgraph" style="height: 250px; width:600px;"></div></center>
+
+                    <br>                    <br>                    <br>
+
+                    <table class='table align-items-center table-flush'>
+                        <thead class="thead-light">
+                            <th>Año</th>
+                            <th>Mes</th>
+                            <th>Ingresos</th>
+                            <th>Egresos</th>
+                            <th>Balance</th>
+                        </thead>
+                        @foreach($month_finances_tab as $item)
+                        <tr>
+                            <td>{{$item['year']}}</td>
+                            <td>{{$item['month']}}</td>
+                            <td>{{$item['ingresos']}}</td>
+                            <td>{{$item['egresos']}}</td>
+                            <td>{{$item['total']}}</td>
+                        </tr>
+                        @endforeach
+                    </table>
+
                 </div>
 
                 <div class="tab-pane fade show" id="nav-anual" role="tabpanel" aria-labelledby="nav-anual-tab">
                     <center><div id="anual" style="height: 250px; width:400px;"></div></center>
 
-                    <br>
-                    
+
                     <table class='table align-items-center table-flush'>
                         <thead class="thead-light">
                             <th>Año</th>
@@ -66,9 +89,8 @@
 <script type="text/javascript">
 
 var data = [
-     
 
-      @foreach ($anual_finances as $finance)
+    @foreach ($anual_finances as $finance)
     {
         y: '{{$finance->year}}'
         @if($finance->type == 'I')
@@ -90,10 +112,38 @@ var data = [
       resize: true,
       pointFillColors:['#ffffff'],
       pointStrokeColors: ['black'],
-      lineColors:['green','red']
-  };
-config.element = 'anual';
-Morris.Line(config);
+      barColors:['#B2E882','#F43A4B']
+    };
+    config.element = 'anual';
+    Morris.Bar(config);
+
+
+    var data = [
+        @foreach ($month_finances_tab as $finance)
+        {
+            y: '{{$finance["year"]}}-{{$finance["month"]}}',
+            a: {{$finance["ingresos"]}},
+            b: {{$finance["egresos"]}}
+        },
+        @endforeach
+    ],
+    config = {
+    data: data,
+    xkey: 'y',
+    ykeys: ['a', 'b'],
+    labels: ['Ingresos', 'Egresos'],
+    fillOpacity: 0.6,
+    hideHover: 'auto',
+    behaveLikeLine: true,
+    resize: true,
+    pointFillColors:['#ffffff'],
+    pointStrokeColors: ['black'],
+    barColors:['#B2E882','#F43A4B']
+    };
+    config.element = 'monthgraph';
+    Morris.Bar(config);
+
+
 </script>
 
 

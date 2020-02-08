@@ -91,52 +91,11 @@
                         <div class="recepie_thumb">
                             <img src="{{env('DEPLOY_URL')}}/img/recepie/menu4.png" alt="">
                         </div>
-                        <!-- <h3>Comidas</h3>
-                        <span>Básico</span>
-                        <p>Sesiones 3</p>
-                        <a href="#" class="line_btn">Más información</a> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- /recepie_area_start  -->
-
-    <!-- recepie_videos   -->
-    <!-- <div class="recepie_videoes_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-6">
-                    <div class="recepie_info">
-                        <h3>Galería de fotos</h3>
-                    <p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women.</p>
-                    <div class="video_watch d-flex align-items-center">
-                        <a class="popup-video" href="https://www.youtube.com/watch?v=lr6AMBsjxrY"> <i class="ti-control-play"></i> </a>
-                        <div class="watch_text" >
-                            <h4>Watch Video</h4>
-                            <p>You will love our execution</p>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="videos_thumb">
-                        <div class="big_img">
-                            <img src="/img/video/big.png" alt="">
-                        </div>
-                        <div class="small_thumb">
-                            <img src="/img/video/small_1.png" alt="">
-                        </div>
-                        <div class="small_thumb_2">
-                            <img src="/img/video/2.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!--/ recepie_videos   -->
-
     <!-- session_videos  -->
     <div class="customer_feedback_area">
         <div class="container">
@@ -188,7 +147,9 @@
     <!-- / customer_feedback_area  -->
     <div class="customer_feedback_area">
         <div class="container">
-            <center><h2>Adrián Hernández</h2></center>
+            <center>
+                <h2>Adrián Hernández</h2>
+            </center>
 
             <div class="row justify-content-center">
                 <ul>
@@ -231,6 +192,38 @@
     </div>
     <!-- / customer_feedback_area  -->
 
+    <!--Calendario -->
+
+    <div class="customer_feedback_area">
+        <div class="container">
+            <div class="row justify-content-center mb-50">
+                <div class="col-xl-9">
+                    <div class="section_title text-center">
+                        <h3>Reserva tu cita</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-2"></div>
+
+                <div class="col-xl-8">
+
+                    <div id='calendar' style="width:100%; height:400px;"></div>
+
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+        </div>
+    </div>
+    <!--Fin de calendario-->
 
     <!-- footer  -->
     <footer class="footer">
@@ -244,68 +237,14 @@
                             </h3>
                             <ul>
                                 <li><a href="/office">Office</a></li>
-                                <!-- <li><a href="#"> Manage Reputation</a></li>
-                                    <li><a href="#">Power Tools</a></li>
-                                    <li><a href="#">Marketing Service</a></li> -->
                             </ul>
 
                         </div>
                     </div>
-                    <!-- <div class="col-xl-2 col-md-6 col-lg-2">
-                            <div class="footer_widget">
-                                <h3 class="footer_title">
-                                    Quick Links
-                                </h3>
-                                <ul>
-                                    <li><a href="#">Jobs</a></li>
-                                    <li><a href="#">Brand Assets</a></li>
-                                    <li><a href="#">Investor Relations</a></li>
-                                    <li><a href="#">Terms of Service</a></li>
-                                </ul>
-    
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-md-6 col-lg-2">
-                            <div class="footer_widget">
-                                <h3 class="footer_title">
-                                    Features
-                                </h3>
-                                <ul>
-                                    <li><a href="#">Jobs</a></li>
-                                    <li><a href="#">Brand Assets</a></li>
-                                    <li><a href="#">Investor Relations</a></li>
-                                    <li><a href="#">Terms of Service</a></li>
-                                </ul>
-    
-                            </div> -->
+
                 </div>
-                <!-- <div class="col-xl-2 col-md-6 col-lg-2">
-                            <div class="footer_widget">
-                                <h3 class="footer_title">
-                                    Resources
-                                </h3>
-                                <ul>
-                                    <li><a href="#">Guides</a></li>
-                                    <li><a href="#">Research</a></li>
-                                    <li><a href="#">Experts</a></li>
-                                    <li><a href="#">Agencies</a></li>
-                                </ul>
-    
-                            </div>
-                        </div> -->
-                <!-- <div class="col-xl-4 col-md-6 col-lg-4">
-                                <div class="footer_widget">
-                                        <h3 class="footer_title">
-                                                Subscribe
-                                        </h3>
-                                        <p class="newsletter_text">You can trust us. we only send promo offers,</p>
-                                        <form action="#" class="newsletter_form">
-                                            <input type="text" placeholder="Enter your mail">
-                                            <button type="submit"> <i class="ti-arrow-right"></i> </button>
-                                        </form>
-                                        
-                                    </div>
-                        </div> -->
+
+
             </div>
         </div>
         </div>
@@ -318,7 +257,7 @@
                             <!-- Link back to Colorlib can't be removed.  is licensed under CC BY 3.0. -->
                             Copyright &copy;<script>
                             document.write(new Date().getFullYear());
-                            </script> All rights reserved | This  is made with <i class="fa fa-heart-o"
+                            </script> All rights reserved | This is made with <i class="fa fa-heart-o"
                                 aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                             <!-- Link back to Colorlib can't be removed.  is licensed under CC BY 3.0. -->
                         </p>
@@ -349,7 +288,7 @@
     <!-- JS here -->
 
     <script src="{{env('DEPLOY_URL')}}js/vendor/modernizr-3.5.0.min.js"></script>
-    <script src="{{env('DEPLOY_URL')}}js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/js/vendor/jquery-1.12.4.min.js"></script>
     <script src="{{env('DEPLOY_URL')}}js/popper.min.js"></script>
     <script src="{{env('DEPLOY_URL')}}js/bootstrap.min.js"></script>
     <script src="{{env('DEPLOY_URL')}}js/owl.carousel.min.js"></script>
@@ -375,6 +314,40 @@
     <script src="{{env('DEPLOY_URL')}}js/mail-script.js"></script>
 
     <script src="{{env('DEPLOY_URL')}}js/main.js"></script>
+
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.js'></script>
+    <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css" />
+
+    <!-- <script src="fullcalendar/interaction/main.js"></script> -->
+
+
+    <script type='text/javascript'>
+    $(document).ready(function() {
+        $('#calendar').fullCalendar({
+            selectable: true,
+            defaultView: 'agendaWeek',
+            minTime: '{{$inicio_citas}}',
+            maxTime: '{{$fin_citas}}',
+            nowIndicator: true,
+            events: [
+                @foreach($appointments as $appointment) {
+                    id: '{{ $appointment["id"]}}',
+                    title: 'No Disponible',
+                    start: '{{ $appointment["date"] }} {{ $appointment["time"] }}',
+                    color: '{{ $appointment["date"] }}'
+                },
+                @endforeach
+            ],
+            select: function(start, end, jsEvent, view) {
+                var allDay = !start.hasTime() && !end.hasTime();
+                if (confirm(["¿Desea agendar una cita el: " + moment(start).format() + " ?"]) ==
+                    true)
+                    window.location.href = "/appointments/create?date=" + moment(start).format();
+            }
+        });
+    });
+    </script>
 
 
 </body>

@@ -65,5 +65,19 @@ class SettingsTableSeeder extends Seeder
             'input' => "time"
             ]);
 
+        DB::table('settings')->insert([
+            'name' => "Hora_Inicio_Citas",
+            'value' => "09:00",
+            'category' => "Tiempo",
+            'input' => "time"
+        ]);
+
+        DB::table('settings')->insert([
+            'name' => "Hora_Fin_Citas",
+            'value' => "19:00",
+            'category' => "Tiempo",
+            'input' => "time"
+        ]);
+        
     }
 }

@@ -11,7 +11,6 @@
 $(document).ready(function() {
     $('#calendar').fullCalendar({
         selectable: true,
-
         events: [
             @foreach($appointments as $appointment) {
                 id: '{{ $appointment["id"]}}',

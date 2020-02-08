@@ -4,8 +4,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/pedro-guardado', function () {return view('welcomep');});
 Route::get('/adrian-hernandez', function () {return view('welcomea');});
 
-Route::get('/', function () {return view('welcome');});
 
+//Welcome
+Route::get('/', "WelcomeController@index");
 
 //Dashboard
 Route::get('/office', "DashboardController@index");

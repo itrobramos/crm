@@ -343,7 +343,7 @@
 
                             </div>
                         </div>
-                        <div class="card-body">
+                         <div class="card-body">
                             <table class="table align-items-center table-flush">
                                 <thead class="thead-light">
                                     <tr>
@@ -374,11 +374,11 @@
                                 </tbody>
                             </table>
 
-                        </div>
+                        </div> 
                     </div>
                 </div>
             </div>
-            <div class="row mt-5">
+            <!-- <div class="row mt-5">
                 <div class="col-xl-12 mb-5 mb-xl-0">
 
                     <div class="card default">
@@ -397,7 +397,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div> -->
 
 
             <hr>
@@ -412,40 +412,3 @@
 </html>
 
 
-
-<script type="text/javascript">
-
-
-var data = [
-
-    @foreach ($finances as $finance)
-    {
-        date: "{{$finance->date}}"
-        @if($finance->type == 'I')
-            , ingresos: {{$finance->amount}}
-        @else
-            , egresos: {{$finance->amount}}
-        @endif,
-    },
-    @endforeach
-
-    ],
-    config = {
-      data: data,
-      xkey: 'date',
-      ykeys: ['ingresos', 'egresos'],
-      labels: ['ingresos', 'egresos'],
-      fillOpacity: 0.6,
-      hideHover: 'auto',
-      behaveLikeLine: true,
-      resize: true,
-      pointFillColors:['#ffffff'],
-      pointStrokeColors: ['black'],
-      lineColors:['green','red']
-  };
-config.element = 'myfirstchart';
-Morris.Line(config);
-
-
-
-</script>

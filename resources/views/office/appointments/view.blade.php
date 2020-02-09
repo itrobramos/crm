@@ -85,8 +85,8 @@
                                     <br>
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <label class="form-control-label" for="input-time">Client</label>
-                                            <input type="client" id="input-client" name="client" disabled
+                                            <label class="form-control-label" for="input-time">Cliente</label>
+                                            <input type="client" id="input-client" name="cliente" disabled
                                                 class="form-control form-control-alternative"
                                                 value="{{ucwords($appointment->pet->client->first_name)}} {{ucwords($appointment->pet->client->last_name)}}">
                                         </div>

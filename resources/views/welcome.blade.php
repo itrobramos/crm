@@ -330,6 +330,13 @@
             minTime: '{{$inicio_citas}}',
             maxTime: '{{$fin_citas}}',
             nowIndicator: true,
+            hiddenDays: [ 0 ], //hide sundays
+            eventLimit: true, // for all non-TimeGrid views
+            views: {
+                timeGrid: {
+                eventLimit: 6 // adjust to 6 only for timeGridWeek/timeGridDay
+                }
+            },
             events: [
                 @foreach($appointments as $appointment) {
                     id: '{{ $appointment["id"]}}',
@@ -340,10 +347,15 @@
                 @endforeach
             ],
             select: function(start, end, jsEvent, view) {
+                if(start.isBefore(moment())) {
+                    $('#calendar').fullCalendar('unselect');
+                    return false;
+                }
+
                 var allDay = !start.hasTime() && !end.hasTime();
                 if (confirm(["¿Desea agendar una cita el: " + moment(start).format() + " ?"]) ==
                     true)
-                    window.location.href = "/appointments/create?date=" + moment(start).format();
+                    window.location.href = "/appointments/request?date=" + moment(start).format();
             }
         });
     });

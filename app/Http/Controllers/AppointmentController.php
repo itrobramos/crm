@@ -56,6 +56,50 @@ class AppointmentController extends Controller
         return view('office/appointments/create',compact('pets'), compact('date'));
     }
 
+    public function request(Request $request)
+    {
+
+        $datetime = strtotime($request->date);
+        $date = date('Y-m-d', $datetime);
+        $time = date('H:i', $datetime);
+
+        return view('office/appointments/request', compact('date'), compact('time'));
+    }
+
+    public function storerequest(Request $request){
+
+        $Client = new Client();
+        $Client->email = $request->email;
+        $Client->first_name = $request->first_name;
+        $Client->last_name = $request->last_name;
+        $Client->phone1 = $request->phone;
+        $Client->genre = $request->genre;
+        $Client->city = $request->city;
+        $Client->birth_date = $request->birth_date;
+        $Client->save();
+
+        $Pet = new Pet();
+        $Pet->name = $request->pet_name;
+        $Pet->birth_date = $request->pet_birth_date;
+        $Pet->genre = $request->pet_genre;
+        $Pet->breed = $request->breed;
+        $Pet->clientId = $Client->id;
+        $Pet->save();
+
+        $Appointment = new Appointment();
+        $Appointment->date = $request->appointment_date;
+        $Appointment->time = $request->appointment_time;
+        $Appointment->type = $request->type;
+        $Appointment->notes = $request->notes;        
+        $Appointment->petId = $Pet->id;
+        $Appointment->status = "Pendiente";
+        $Appointment->save();
+
+        return redirect('/');
+    }
+
+
+
     public function store(Request $request){
 
         $Appointment = new Appointment();

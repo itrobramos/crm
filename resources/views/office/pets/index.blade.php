@@ -42,7 +42,7 @@
                             </td>
                             <td>
                                 <span class="badge badge-dot mr-4">
-                                    <i class="bg-warning"></i> Hace 5 meses
+                                    <i class="bg-warning"></i> Pendiente
                                 </span>
                             </td>
                             <td class="text-left">

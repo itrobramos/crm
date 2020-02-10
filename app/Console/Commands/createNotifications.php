@@ -151,5 +151,7 @@ class createNotifications extends Command
         $NewNotification->notificationTypeId = 4;
         $NewNotification->save();
 
+        return "Job ejecutado correctamente";
+
     }
 }

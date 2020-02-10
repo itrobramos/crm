@@ -78,6 +78,19 @@ class SettingsTableSeeder extends Seeder
             'category' => "Tiempo",
             'input' => "time"
         ]);
-        
+
+        DB::table('settings')->insert([
+            'name' => "Tiempo_Entre_Citas",
+            'value' => "30",
+            'category' => "Global",
+            'input' => "number"
+        ]);
+
+        DB::table('settings')->insert([
+            'name' => "Email_Notificaciones",
+            'value' => "it.robramos@gmail.com",
+            'category' => "Global",
+            'input' => "text"
+        ]);
     }
 }

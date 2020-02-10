@@ -3,6 +3,13 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Appointment;
+use App\Client;
+use App\Notification;
+use App\NotificationType;
+use App\Pet;
+use App\Setting;
+
 
 class createNotifications extends Command
 {
@@ -11,14 +18,14 @@ class createNotifications extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'notifications:create';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Creacion de notificaciones';
 
     /**
      * Create a new command instance.

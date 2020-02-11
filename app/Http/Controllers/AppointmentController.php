@@ -22,12 +22,16 @@ class AppointmentController extends Controller
     {
         $Appointments = Appointment::all();
         $List = [];
+        $Duracion = Setting::where('name','Duracion_Cita')->first()->value;
 
         foreach($Appointments as $Appointment){
 
+            $endTime = strtotime("+" . $Duracion . " minutes", strtotime($Appointment->time));
+
             $List[] = [
                 "id" => $Appointment->id,
-                "start" => $Appointment->date,
+                "start" => $Appointment->date . " " . $Appointment->time,
+                "end" => $Appointment->date . " " . date('H:i', $endTime),
                 "color" => Setting::where('name',$Appointment->status)->first()->value,
                 "title" => $Appointment->pet->client->first_name . " / " . $Appointment->pet->name
             ];

@@ -329,6 +329,7 @@
             defaultView: 'agendaWeek',
             minTime: '{{$inicio_citas}}',
             maxTime: '{{$fin_citas}}',
+            showEndEvent: true,
             nowIndicator: true,
             hiddenDays: [ 0 ], //hide sundays
             eventLimit: true, // for all non-TimeGrid views
@@ -341,8 +342,9 @@
                 @foreach($appointments as $appointment) {
                     id: '{{ $appointment["id"]}}',
                     title: 'No Disponible',
-                    start: '{{ $appointment["date"] }} {{ $appointment["time"] }}',
-                    color: '{{ $appointment["date"] }}'
+                    start: '{{ $appointment["start"] }}',
+                    end: '{{ $appointment["end"]}}',
+                    color: '{{$color}}'
                 },
                 @endforeach
             ],

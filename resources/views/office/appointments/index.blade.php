@@ -11,11 +11,13 @@
 $(document).ready(function() {
     $('#calendar').fullCalendar({
         selectable: true,
+        displayEventEnd: true,
         events: [
             @foreach($appointments as $appointment) {
                 id: '{{ $appointment["id"]}}',
                 title: '{{ $appointment["title"] }}',
                 start: '{{ $appointment["start"] }}',
+                end: '{{ $appointment["end"] }}',
                 color: '{{ $appointment["color"] }}'
             },
             @endforeach

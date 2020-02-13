@@ -8,12 +8,15 @@ use App\Finance;
 use App\Pet;
 use App\User;
 use App\Setting;
+use App\Email;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
+use Illuminate\Mail\Mailable;
 use Config;
 use Carbon\Carbon;
 use View;
+use Mail;
 
 class MailController extends Controller
 {
@@ -32,11 +35,6 @@ class MailController extends Controller
         //Cumpleaños Clientes
         $Clients = Client::whereMonth('birth_date', '=',date('m',strtotime($today)))->whereDay('birth_date','=',date('d',strtotime($today)))->get();
 
-        foreach($Clients as $Client){
-            $diff = $today->diff($Client->birth_date);
-            $Client['Aniversario'] = $diff;
-        }
-
         $data['clients'] = $Clients;
 
         //Cumpleaños Mascotas
@@ -50,17 +48,59 @@ class MailController extends Controller
 
         $data['appointments'] = $Appointments;
 
+        // return view('email.daily_resume',$data);
 
-        // $view = View::make('email/dailyResume', [
-        //     'clients' => $Clients,
-        //     'today'   => $today,
-        //     'appointments' => $Appointments
-        // ]);
+        Mail::send('email.daily_resume', $data,
+        function($message){
+            $email = 'roberto.ramosalv@gmail.com'; //$Pet->client->email;
+            $message->from(env('MAIL_USERNAME'),'Adrián Hernández');
+            $message->to($email, 'Adrián Hernández')->subject('Resumen del día');
+        });
 
-        // $html = $view->render();
-        //dd($html);
-
-        return view('email/dailyResume',$data);
     }
 
+    public function birthdays(){
+        date_default_timezone_set('America/Monterrey');
+
+        $today = date('Y-m-d');
+        $data['today'] = $today;
+
+
+        //Cumpleaños Mascota
+        $TextEmail = Email::where('name', 'Cumpleaños Mascota')->first();
+
+        $Pets = Pet::whereMonth('birth_date', '=',date('m',strtotime($today)))
+                   ->whereDay('birth_date','=',date('d',strtotime($today)))->get();
+
+
+        foreach($Pets as $Pet){
+
+            $email = "roberto.ramosalv@gmail.com"; //$Pet->client->email;
+            $name = $Pet->client->first_name . " " . $Pet->client->last_name;
+            Mail::send('email.birthday', $data,
+            function($message){
+              $message->from(env('MAIL_USERNAME'),'Adrián Hernández');
+              $message->to($email, $name )->subject('Feliz aniversario');
+            });
+        }
+
+
+        //Cumpleaños Clientes
+        $TextEmail = Email::where('name', 'Cumpleaños Cliente')->first();
+
+        $Clients = Client::whereMonth('birth_date', '=',date('m',strtotime($today)))->whereDay('birth_date','=',date('d',strtotime($today)))->get();
+
+        foreach($Clients as $Client){
+
+            $email = "roberto.ramosalv@gmail.com"; //$Client->email;
+            $name = $Client->first_name . " " . $Client->last_name;
+
+            Mail::send('email.birthday', $data,
+            function($message){
+              $message->from(env('MAIL_USERNAME'),'Adrián Hernández');
+              $message->to($email, $name )->subject('Feliz aniversario');
+            });
+
+        }
+    }
 }

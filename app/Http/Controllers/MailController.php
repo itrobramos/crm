@@ -75,10 +75,10 @@ class MailController extends Controller
 
         foreach($Pets as $Pet){
 
-            $email = "roberto.ramosalv@gmail.com"; //$Pet->client->email;
             $name = $Pet->client->first_name . " " . $Pet->client->last_name;
             Mail::send('email.birthday', $data,
             function($message){
+              $email = "roberto.ramosalv@gmail.com"; //$Pet->client->email;
               $message->from(env('MAIL_USERNAME'),'Adrián Hernández');
               $message->to($email, $name )->subject('Feliz aniversario');
             });

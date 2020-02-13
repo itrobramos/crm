@@ -78,7 +78,7 @@ class MailController extends Controller
             Mail::send('email.birthday', $data,
             function($message){
               $email = "roberto.ramosalv@gmail.com"; //$Pet->client->email;
-              $name = $Pet->client->first_name . " " . $Pet->client->last_name;
+              $name = "test";//$Pet->client->first_name . " " . $Pet->client->last_name;
               $message->from(env('MAIL_USERNAME'),'Adrián Hernández');
               $message->to($email, $name )->subject('Feliz aniversario');
             });

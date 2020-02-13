@@ -75,10 +75,10 @@ class MailController extends Controller
 
         foreach($Pets as $Pet){
 
-            $name = $Pet->client->first_name . " " . $Pet->client->last_name;
             Mail::send('email.birthday', $data,
             function($message){
               $email = "roberto.ramosalv@gmail.com"; //$Pet->client->email;
+              $name = $Pet->client->first_name . " " . $Pet->client->last_name;
               $message->from(env('MAIL_USERNAME'),'Adrián Hernández');
               $message->to($email, $name )->subject('Feliz aniversario');
             });
@@ -92,12 +92,12 @@ class MailController extends Controller
 
         foreach($Clients as $Client){
 
-            $email = "roberto.ramosalv@gmail.com"; //$Client->email;
-            $name = $Client->first_name . " " . $Client->last_name;
 
             Mail::send('email.birthday', $data,
             function($message){
-              $message->from(env('MAIL_USERNAME'),'Adrián Hernández');
+                $email = "roberto.ramosalv@gmail.com"; //$Client->email;
+                $name = $Client->first_name . " " . $Client->last_name;
+                $message->from(env('MAIL_USERNAME'),'Adrián Hernández');
               $message->to($email, $name )->subject('Feliz aniversario');
             });
 

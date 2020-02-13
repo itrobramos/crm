@@ -72,7 +72,7 @@ class MailController extends Controller
         $Pets = Pet::whereMonth('birth_date', '=',date('m',strtotime($today)))
                    ->whereDay('birth_date','=',date('d',strtotime($today)))->get();
 
-        $data['email_text'] = $TextEmail;
+        $data['email_text'] = $TextEmail->text;
 
 
         foreach($Pets as $Pet){
@@ -90,7 +90,7 @@ class MailController extends Controller
         //Cumpleaños Clientes
         $TextEmail = Email::where('name', 'Cumpleaños Cliente')->first();
 
-        $data['email_text'] = $TextEmail;
+        $data['email_text'] = $TextEmail->text;
 
         $Clients = Client::whereMonth('birth_date', '=',date('m',strtotime($today)))->whereDay('birth_date','=',date('d',strtotime($today)))->get();
 

@@ -10,7 +10,7 @@
                 <h3 class="mb-0">Emails</h3>
                 <br>
                 <div class="col-1 text-right">
-                    <a href="{{ url('email/create')}}" class="btn btn-sm btn-primary">Redactar email</a>
+                    <a href="{{ url('emails/new')}}" class="btn btn-sm btn-primary">Redactar email</a>
                 </div>
             </div>
             <div class="table-responsive">

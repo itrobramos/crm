@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Config;
 use App\Email;
+use App\Client;
 use Carbon\Carbon;
+use Mail;
 
 class EmailController extends Controller
 {
@@ -40,5 +42,29 @@ class EmailController extends Controller
         $Emails = Email::get();
         $data['emails'] = $Emails;
         return redirect('emails');
+    }
+
+    public function new(){
+        $data['clients'] = Client::orderBy("first_name")->get();
+
+        return view('office/emails/new', $data);
+    }
+
+    public function send(Request $request){
+
+        //dd($request);
+
+        
+        $data['email_text'] = $request->detail;
+        $email = Client::find($request->clientId)->email;
+        
+        Mail::send('email.simple_email', $data,
+        function($message) use ($email){
+            $message->from(env('MAIL_USERNAME'),'Adrián Hernández');
+            $message->to($email, 'Adrián Hernández')->subject('Mensaje enviado desde la plataforma');
+        });
+
+        return view('office/emails');
+        
     }
 }

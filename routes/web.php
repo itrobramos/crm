@@ -56,3 +56,5 @@ Route::get('/notifications', 'NotificationController@index');
 Route::get('/emails', 'EmailController@index');
 Route::get('/emails/{id}/edit', "EmailController@edit");
 Route::patch('/emails/{id}', 'EmailController@update');
+Route::get('/emails/new', 'EmailController@new');
+Route::post('/emails/send', 'EmailController@send');

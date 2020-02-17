@@ -1,7 +1,4 @@
 @extends('layouts.app')
-
-
-
 @section('content')
 
 <div class="row">
@@ -15,7 +12,7 @@
                 </div>
             </div>
             <div class="table-responsive">
-                <table class="table align-items-center table-flush">
+                <table class="table align-items-center table-flush" id="datatable">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">Nombre</th>
@@ -121,5 +118,11 @@
         </div>
     </div>
 </div>
+
+<script>
+$(document).ready( function () {
+    $('#datatable').DataTable();
+} );
+</script>
 
 @endsection

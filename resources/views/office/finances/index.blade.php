@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-
-
 @section('content')
 
 <div class="row">
@@ -16,7 +14,7 @@
             </div>
            <br>
             <div class="table-responsive">
-                <table class="table align-items-center table-flush">
+                <table class="table align-items-center table-flush" id="datatable">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">Fecha</th>
@@ -24,19 +22,18 @@
                             <th scope="col">Motivo</th>
                             <th scope="col">Ingresos</th>
                             <th scope="col">Egresos</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($finances as $finance)
                         <tr>
-                            <th scope="row">
+                            <td scope="row">
                                 <div class="media align-items-center">
                                     <div class="media-body">
                                         <span class="mb-0 text-sm">{{$finance->date}}</span>
                                     </div>
                                 </div>
-                            </th>
+                            </td>
                             <td>
                                 {{$finance->client}}
                             </td>
@@ -60,39 +57,18 @@
                             </td>
                         </tr>
                         @endforeach
-
                     </tbody>
                 </table>
             </div>
-            <!--
-            <div class="card-footer py-4">
-                <nav aria-label="...">
-                    <ul class="pagination justify-content-end mb-0">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1">
-                                <i class="fas fa-angle-left"></i>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                        </li>
-                        <li class="page-item active">
-                            <a class="page-link" href="#">1</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">
-                                <i class="fas fa-angle-right"></i>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
--->
+            
         </div>
     </div>
 </div>
+
+<script>
+$(document).ready( function () {
+    $('#datatable').DataTable();
+} );
+</script>
 
 @endsection

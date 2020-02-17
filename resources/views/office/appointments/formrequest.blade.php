@@ -156,7 +156,7 @@
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-date">Fecha</label>
-                                    <input type="date" id="input-date" name="appointment_date" disabled
+                                    <input type="date" id="input-date" name="appointment_date" readonly
                                         class="form-control form-control-alternative datepicker"
                                         data-format="yyyy-mm-dd" value="{{ $date }}">
                                 </div>
@@ -166,7 +166,7 @@
                             <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="input-time">Hora</label>
-                                    <input type="time" id="input-time" name="appointment_time" disabled
+                                    <input type="time" id="input-time" name="appointment_time" readonly
                                         class="form-control form-control-alternative" require value="{{ $time }}">
                                 </div>
                             </div>
@@ -193,13 +193,21 @@
                                 </div>
                             </div>
                         </div>
-                        <br>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group focused">
+                                    <label class="form-control-label" for="input-breed">Dirección</label>
+                                    <textarea rows="4" class="form-control form-control-alternative"
+                                        name="address"></textarea>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group focused">
                                     <label>Notas</label>
                                     <textarea rows="4" class="form-control form-control-alternative"
-                                        name="notes">{{ isset($appointment->notes)?$appointment->notes:""}}</textarea>
+                                        name="notes"></textarea>
                                 </div>
                             </div>
                         </div>

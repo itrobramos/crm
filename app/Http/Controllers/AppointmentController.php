@@ -80,6 +80,7 @@ class AppointmentController extends Controller
         $Client->genre = $request->genre;
         $Client->city = $request->city;
         $Client->birth_date = $request->birth_date;
+        $Client->address = $request->address;
         $Client->save();
 
         $Pet = new Pet();

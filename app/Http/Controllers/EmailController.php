@@ -52,9 +52,6 @@ class EmailController extends Controller
 
     public function send(Request $request){
 
-        //dd($request);
-
-        
         $data['email_text'] = $request->detail;
         $email = Client::find($request->clientId)->email;
         
@@ -64,7 +61,7 @@ class EmailController extends Controller
             $message->to($email, 'Adrián Hernández')->subject('Mensaje enviado desde la plataforma');
         });
 
-        return view('office/emails');
+        return redirect('emails');
         
     }
 }

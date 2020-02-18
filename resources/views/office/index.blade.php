@@ -374,7 +374,7 @@
                                 </tbody>
                             </table>
 
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -399,6 +399,33 @@
 
             </div> -->
 
+            <br>
+
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="card shadow">
+                        <div class="card-header bg-transparent">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h6 class="text-uppercase text-muted ls-1 mb-1">Reporte</h6>
+                                    <h2 class="mb-0">Clientes activos por mes</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-pane fade show" id="nav-anual" role="tabpanel" aria-labelledby="nav-anual-tab">
+                                    <center><div id="month" style="height: 250px; width:400px;"></div></center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
 
             <hr>
         </div>
@@ -410,5 +437,34 @@
     </body>
 
 </html>
+
+<script type="text/javascript">
+
+var data = [
+
+    @foreach ($month_clients as $month_client)
+    {
+        y: '{{$month_client->year}}-{{$month_client->month}}',
+        a: {{$month_client->total}}
+    },
+    @endforeach
+    ],
+    config = {
+      data: data,
+      xkey: 'y',
+      ykeys: ['a'],
+      labels: ['Total'],
+      fillOpacity: 0.6,
+      hideHover: 'auto',
+      behaveLikeLine: true,
+      resize: true,
+      pointFillColors:['#ffffff'],
+      pointStrokeColors: ['black'],
+      barColors:['#B2E882']
+    };
+    config.element = 'month';
+    Morris.Bar(config);
+
+</script>
 
 

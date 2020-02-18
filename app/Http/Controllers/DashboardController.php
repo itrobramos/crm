@@ -9,6 +9,7 @@ use App\Pet;
 use App\Finance;
 use App\Notification;
 use Illuminate\Support\Facades\File;
+use DB;
 
 use Illuminate\Http\Request;
 
@@ -29,10 +30,22 @@ class DashboardController extends Controller
         $data['notifications'] = Notification::orderBy('date','asc')->get();
 
 
-        $Egresos = Finance::where('type','E')->sum('amount'); 
-        $Ingresos = Finance::where('type','I')->sum('amount'); 
+        $Egresos = Finance::where('type','E')->sum('amount');
+        $Ingresos = Finance::where('type','I')->sum('amount');
 
         $data['ingresos'] =  $Ingresos - $Egresos;
+
+        ////Inicio reporte de clientes por mes
+
+         //Year
+         $YearGraph = DB::select("select year(a.date) year, month(a.date) month, count(*) total
+                                  from clients c INNER JOIN pets p ON c.id = p.clientid
+                                                 INNER JOIN appointments a ON a.petid = p.id
+                                  WHERE a.status = 'Finalizada'
+                                  Group by year(a.date), month(a.date)");
+         $data['month_clients'] = $YearGraph;
+
+         //Fin reporte de clientes por mes
 
         return view('office/index',$data);
     }

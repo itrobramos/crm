@@ -29,7 +29,7 @@
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-email">Email</label>
                                     <input type="text" id="input-email" name="email"
-                                        class="form-control form-control-alternative" value="">
+                                        class="form-control form-control-alternative" value="" required>
                                 </div>
                             </div>
                         </div>
@@ -39,14 +39,14 @@
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-name">Nombre</label>
                                     <input type="text" id="input-name" name="first_name"
-                                        class="form-control form-control-alternative" value="">
+                                        class="form-control form-control-alternative" value="" required>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-name">Apellido</label>
                                     <input type="text" id="input-name" name="last_name"
-                                        class="form-control form-control-alternative" value="">
+                                        class="form-control form-control-alternative" value="" required>
                                 </div>
                             </div>
 
@@ -57,7 +57,7 @@
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-phone">Teléfono</label>
                                     <input type="text" id="input-phone" name="phone"
-                                        class="form-control form-control-alternative" value="">
+                                        class="form-control form-control-alternative" value="" required>
                                 </div>
                             </div>
 
@@ -88,7 +88,7 @@
                                     <label class="form-control-label" for="input-birth_date">Fecha Nacimiento</label>
                                     <input type="date" id="input-birth_date" name="birth_date"
                                         class="form-control form-control-alternative datepicker"
-                                        value="{{ isset($client->birth_date)?$client->birth_date:""}}">
+                                        value="{{ isset($client->birth_date)?$client->birth_date:""}}" required>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +102,7 @@
                                     <label class="form-control-label" for="input-name">Nombre</label>
                                     <input type="text" id="input-name" name="pet_name"
                                         class="form-control form-control-alternative" require
-                                        value="{{ isset($pet->name)?$pet->name:""}}">
+                                        value="{{ isset($pet->name)?$pet->name:""}}" required>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +112,7 @@
                                     <label class="form-control-label" for="input-breed">Raza</label>
                                     <input type="text" id="input-breed" name="breed"
                                         class="form-control form-control-alternative" require
-                                        value="{{ isset($pet->breed)?$pet->breed:""}}">
+                                        value="{{ isset($pet->breed)?$pet->breed:""}}" required>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +122,7 @@
                                     <label class="form-control-label" for="input-birth_date">Fecha Nacimiento</label>
                                     <input type="date" id="input-birth_date" name="pet_birth_date"
                                         class="form-control form-control-alternative datepicker"
-                                        value="{{ isset($pet->birth_date)?$pet->birth_date:""}}">
+                                        value="{{ isset($pet->birth_date)?$pet->birth_date:""}}" required>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -158,7 +158,7 @@
                                     <label class="form-control-label" for="input-date">Fecha</label>
                                     <input type="date" id="input-date" name="appointment_date" readonly
                                         class="form-control form-control-alternative datepicker"
-                                        data-format="yyyy-mm-dd" value="{{ $date }}">
+                                        data-format="yyyy-mm-dd" value="{{ $date }}" required>
                                 </div>
 
                             </div>
@@ -167,7 +167,7 @@
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="input-time">Hora</label>
                                     <input type="time" id="input-time" name="appointment_time" readonly
-                                        class="form-control form-control-alternative" require value="{{ $time }}">
+                                        class="form-control form-control-alternative" required value="{{ $time }}">
                                 </div>
                             </div>
 
@@ -188,7 +188,7 @@
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="input-breed">Municipio</label>
                                     <input type="text" id="input-breed" name="city"
-                                        class="form-control form-control-alternative" require
+                                        class="form-control form-control-alternative" required
                                         value="">
                                 </div>
                             </div>
@@ -198,7 +198,7 @@
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="input-breed">Dirección</label>
                                     <textarea rows="4" class="form-control form-control-alternative"
-                                        name="address"></textarea>
+                                        name="address" required></textarea>
                                 </div>
                             </div>
                         </div>
@@ -207,7 +207,7 @@
                                 <div class="form-group focused">
                                     <label>Notas</label>
                                     <textarea rows="4" class="form-control form-control-alternative"
-                                        name="notes"></textarea>
+                                        name="notes" required></textarea>
                                 </div>
                             </div>
                         </div>

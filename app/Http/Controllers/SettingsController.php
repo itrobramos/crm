@@ -14,6 +14,12 @@ class SettingsController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
         $Settings = Setting::all();
@@ -32,7 +38,7 @@ class SettingsController extends Controller
             $Update->value = $request->$name;
             $Update->save();
         }
-        
+
         return redirect('settings')->with('Message','Settings updated successfully');
     }
 

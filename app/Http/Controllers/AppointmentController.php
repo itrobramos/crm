@@ -12,11 +12,16 @@ use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['request', 'storerequest']]);
+    }
 
     public function index()
     {
@@ -95,7 +100,7 @@ class AppointmentController extends Controller
         $Appointment->date = $request->appointment_date;
         $Appointment->time = $request->appointment_time;
         $Appointment->type = $request->type;
-        $Appointment->notes = $request->notes;        
+        $Appointment->notes = $request->notes;
         $Appointment->petId = $Pet->id;
         $Appointment->status = "Pendiente";
         $Appointment->save();
@@ -128,7 +133,7 @@ class AppointmentController extends Controller
         $Appointment->date = $request->date;
         $Appointment->notes = $request->notes;
         $Appointment->status = $request->status;
-        
+
 
         $Appointment->save();
         return redirect('appointments')->with('Message','Appointment updated successfully');

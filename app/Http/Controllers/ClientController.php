@@ -21,7 +21,14 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
+     public function index()
     {
         date_default_timezone_set('America/Monterrey');
 
@@ -57,14 +64,14 @@ class ClientController extends Controller
                     ->where('date','<=',NOW())
                     ->orderBy('date','desc')
                     ->first();
-                
+
 
             if($data != null){
                 $now = time(); // or your date as well
-                $datediff = $now - strtotime($data->date);            
+                $datediff = $now - strtotime($data->date);
                 $datediff =  round($datediff / (60 * 60 * 24));
-                $Client["lastService"] = Carbon::now()->subDays($datediff)->diffForHumans();   
-                $Client["lastServiceDays"] = $datediff;   
+                $Client["lastService"] = Carbon::now()->subDays($datediff)->diffForHumans();
+                $Client["lastServiceDays"] = $datediff;
             }
             else
                 $Client["lastService"] = "Inactivo";
@@ -73,7 +80,7 @@ class ClientController extends Controller
             $Client["Total"] = $Client["Ingresos"] - $Client["Egresos"];
         }
 
-        
+
         $data['clients'] = $Clients;
         $data['Inactividad'] = $Inactividad;
         return view('office/clients/index',$data);

@@ -17,7 +17,14 @@ class EmailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
+     public function index()
     {
         $Emails = Email::get();
         $data['emails'] = $Emails;
@@ -54,7 +61,7 @@ class EmailController extends Controller
 
         $data['email_text'] = $request->detail;
         $email = Client::find($request->clientId)->email;
-        
+
         Mail::send('email.simple_email', $data,
         function($message) use ($email){
             $message->from(env('MAIL_USERNAME'),'Adrián Hernández');
@@ -62,6 +69,6 @@ class EmailController extends Controller
         });
 
         return redirect('emails');
-        
+
     }
 }

@@ -7,9 +7,11 @@ Route::get('/adrian-hernandez', function () {return view('welcomea');});
 
 //Welcome
 Route::get('/', "WelcomeController@index");
+Route::get('index', "WelcomeController@index");
+
 
 //Dashboard
-Route::get('/office', "DashboardController@index");
+// Route::get('/office', "DashboardController@index");
 
 // Clientes
 Route::get('/clients', "ClientController@index");
@@ -58,3 +60,13 @@ Route::get('/emails/{id}/edit', "EmailController@edit");
 Route::patch('/emails/{id}', 'EmailController@update');
 Route::get('/emails/new', 'EmailController@new');
 Route::post('/emails/send', 'EmailController@send');
+
+Auth::routes([
+    'register' => false, // Registration Routes...
+    'reset' => false, // Password Reset Routes...
+    'verify' => false, // Email Verification Routes...
+]);
+
+// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', "DashboardController@index");
+Route::get('/office', "DashboardController@index");

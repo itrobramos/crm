@@ -21,7 +21,7 @@ class WelcomeController extends Controller
         $List = [];
         $Duracion = Setting::where('name','Duracion_Cita')->first()->value;
         $Tiempo_Entre_Citas = Setting::where('name','Tiempo_Entre_Citas')->first()->value;
-        
+
         foreach($Appointments as $Appointment){
 
             $endTime = strtotime("+" . $Duracion + $Tiempo_Entre_Citas . " minutes", strtotime($Appointment->time));
@@ -46,7 +46,7 @@ class WelcomeController extends Controller
         $data['inicio_citas'] = $Inicio_Citas;
         $data['fin_citas'] = $Fin_Citas;
         $data['color'] = $Aceptada;
-        
+
         return view('welcome',$data);
     }
 

@@ -20,6 +20,12 @@ class NotificationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $Notifications = Notification::get();
@@ -40,7 +46,7 @@ class NotificationController extends Controller
     }
 
     public function create(){
-        
+
         $today = date('Y-m-d');
 
         //Cumpleaños Cliente
@@ -92,7 +98,7 @@ class NotificationController extends Controller
 
 
             $now = time(); // or your date as well
-            $datediff = $now - strtotime($Appointment->date);            
+            $datediff = $now - strtotime($Appointment->date);
             $datediff =  round($datediff / (60 * 60 * 24));
 
             if($datediff >= $Inactividad){
@@ -113,7 +119,7 @@ class NotificationController extends Controller
             }
         }
 
-        
+
         //Seguimiento Mascotas
         $Seguimiento = Setting::where('name','Mascota_Seguimiento')->first()->value;
         $SeguimientoPets = [];
@@ -127,9 +133,9 @@ class NotificationController extends Controller
 
             if($Appointment!=null){
                 $now = time(); // or your date as well
-                $datediff = $now - strtotime($Appointment->date);            
+                $datediff = $now - strtotime($Appointment->date);
                 $datediff =  round($datediff / (60 * 60 * 24));
-    
+
                 if($datediff >= $Seguimiento){
                     $SeguimientoPets[] = ['id' => $Pet->id, 'name' => $pet->name, 'Days' => $datediff, 'owner' => $Pet->client->first_name . " " . $Pet->client->last_name];
                 }

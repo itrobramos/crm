@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.login')
 
 @section('content')
 
@@ -25,6 +25,7 @@
                         <h6 class="heading-small text-muted mb-4">Información básica</h6>
 
                         <div class="row">
+                            <div class="col-lg-3"></div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-email">Email</label>
@@ -35,6 +36,7 @@
                         </div>
 
                         <div class="row">
+                            <div class="col-lg-3"></div>
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-name">Nombre</label>
@@ -53,6 +55,7 @@
                         </div>
 
                         <div class="row">
+                            <div class="col-lg-3"></div>
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-phone">Teléfono</label>
@@ -83,6 +86,7 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-lg-3"></div>
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-birth_date">Fecha Nacimiento</label>
@@ -97,6 +101,7 @@
                         <h6 class="heading-small text-muted mb-4">Información mascota</h6>
 
                         <div class="row">
+                            <div class="col-lg-3"></div>
                             <div class="col-lg-6">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="input-name">Nombre</label>
@@ -107,6 +112,7 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-lg-3"></div>
                             <div class="col-lg-6">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="input-breed">Raza</label>
@@ -117,6 +123,7 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-lg-3"></div>
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-birth_date">Fecha Nacimiento</label>
@@ -153,6 +160,7 @@
                         <h6 class="heading-small text-muted mb-4">Información Cita</h6>
 
                         <div class="row">
+                            <div class="col-lg-3"></div>
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-date">Fecha</label>
@@ -174,6 +182,7 @@
                         </div>
 
                         <div class="row">
+                            <div class="col-lg-3"></div>
                             <div class="col-lg-6">
                                 <label class="form-control-label" for="input-time">Tipo</label>
                                 <select name="type" id="type" class="form-control">
@@ -184,6 +193,7 @@
                         </div>
                         <br>
                         <div class="row">
+                            <div class="col-lg-3"></div>
                             <div class="col-lg-6">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="input-breed">Municipio</label>
@@ -194,6 +204,7 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-lg-3"></div>
                             <div class="col-lg-6">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="input-breed">Dirección</label>
@@ -203,6 +214,7 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-lg-3"></div>
                             <div class="col-lg-6">
                                 <div class="form-group focused">
                                     <label>Notas</label>
@@ -213,6 +225,7 @@
                         </div>
 
                         <div class="row">
+                            <div class="col-lg-3"></div>
                             <div class="col-lg-6">
                                 <div class="text-left" style="font-size:12px">
                                     Al enviar esta información, será contactado por el entrenador para concretar
@@ -223,6 +236,7 @@
                         <br>
 
                         <div class="row">
+                            <div class="col-lg-3"></div>
                             <div class="col-lg-6">
                                 <div class="text-right">
                                     <a href="{{ url('appointments')}}" class='btn btn-primary btn-md'>Cancelar</a>

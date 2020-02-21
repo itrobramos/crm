@@ -28,10 +28,12 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
     <!-- Icons -->
-    <link href="{{ URL::asset('/dashboard/assets/js/plugins/nucleo/css/nucleo.css') }}" rel="stylesheet" />
-    <link href="{{ URL::asset('/dashboard/assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{env('DEPLOY_URL')}}/css/bootstrap.min.css">
+
+    <link href="{{ env('DEPLOY_URL')}}/dashboard/assets/js/plugins/nucleo/css/nucleo.css') }}" rel="stylesheet" />
+    <link href="{{ env('DEPLOY_URL')}}/dashboard/assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
     <!-- CSS Files -->
-    <link href="{{ URL::asset('/dashboard/assets/css/argon-dashboard.css?v=1.1.0') }}" rel="stylesheet" />
+    <link href="{{ env('DEPLOY_URL')}}/dashboard/assets/css/argon-dashboard.css?v=1.1.0') }}" rel="stylesheet" />
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>

@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\createNotifications::class
     ];
 
     /**
@@ -24,8 +24,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        // $schedule->command('createNotifications')
+        //            ->hourly();
+        $schedule->command('notifications:create')->timezone('America/Mexico_City')->dailyAt('17:30');
     }
 
     /**

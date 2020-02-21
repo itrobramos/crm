@@ -28,10 +28,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
     <!-- Icons -->
-    <link rel="stylesheet" href="{{env('DEPLOY_URL')}}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ env('DEPLOY_URL') }}/css/bootstrap.min.css">
 
-    <link href="{{ env('DEPLOY_URL')}}/dashboard/assets/js/plugins/nucleo/css/nucleo.css') }}" rel="stylesheet" />
-    <link href="{{ env('DEPLOY_URL')}}/dashboard/assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
+    <link href="{{ env('DEPLOY_URL')}}/dashboard/assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
+    <link href="{{ env('DEPLOY_URL')}}/dashboard/assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link href="{{ env('DEPLOY_URL')}}/dashboard/assets/css/argon-dashboard.css?v=1.1.0') }}" rel="stylesheet" />
 
@@ -294,6 +294,7 @@
                 </div>
             </div>
         </div>
+        <br>
         <div class="container-fluid mt--7">
             <div class="row">
                 <div class="col-xl-6">

@@ -57,9 +57,10 @@
 
     <div class="main-content">
         <!-- Navbar -->
-        <div class="header bg-gradient-primary pb-6 pt-3 pt-md-8">
-
+        <!-- <div class="header bg-gradient-primary pb-6 pt-3 pt-md-8"> -->
+        <div class="header  pb-6 pt-3 pt-md-8">
         </div>
+
         <div class="container-fluid mt--7">
 
             @yield('content')

@@ -10,6 +10,9 @@ use App\Finance;
 use App\Notification;
 use Illuminate\Support\Facades\File;
 use DB;
+use Auth;
+use Session;
+use Redirect;
 
 use Illuminate\Http\Request;
 
@@ -57,6 +60,12 @@ class DashboardController extends Controller
         return view('office/index',$data);
     }
 
+
+    function logout(){
+        Auth::logout();
+        Session::flush();
+        return Redirect::to('/');
+    }
 
 
 }

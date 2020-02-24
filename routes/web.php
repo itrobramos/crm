@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 
-Route::get('/pedro-guardado', function () {return view('welcomep');});
+Route::get('/pedro-guardado', "WelcomeController@indexpedro");
 Route::get('/adrian-hernandez', function () {return view('welcomea');});
 
 

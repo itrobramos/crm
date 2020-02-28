@@ -312,7 +312,7 @@
                 },
                 @endforeach
             ],
-            select: function(start, end, jsEvent, view) {
+            dayClick: function(start, end, jsEvent, view) {
                 if(start.isBefore(moment())) {
                     $('#calendar').fullCalendar('unselect');
                     return false;

@@ -7,6 +7,7 @@ use App\Client;
 use App\Pet;
 use App\Setting;
 use Illuminate\Support\Facades\File;
+use Mail;
 
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class AppointmentController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['request', 'storerequest']]);
+        $this->middleware('auth', ['except' => ['request', 'storerequest', 'deny','accept']]);
     }
 
     public function index()
@@ -105,6 +106,35 @@ class AppointmentController extends Controller
         $Appointment->status = "Pendiente";
         $Appointment->save();
 
+
+        $data['client_name'] = $Client->first_name . " " . $Client->last_name;
+        $data['client_email'] = $Client->email;
+        $data['client_phone'] = $Client->phone1;
+
+        $data['pet_name'] = $Pet->name;
+        $data['pet_breed'] = $Pet->breed;
+        $data['pet_genre'] = $Pet->genre;
+        
+        $data['appointment_date'] = $Appointment->date;
+        $data['appointment_time'] = $Appointment->time;
+        $data['appointment_type'] = $Appointment->type;
+
+        $data['appointment_city'] = $Client->city;
+        $data['appointment_address'] = $Client->address;
+        $data['appointment_notes'] = $Appointment->notes;
+        $data['appointment_id'] = $Appointment->id;
+
+        
+
+        Mail::send('email.appointment_email', $data,
+        function($message){
+          $Email = Setting::where('name','Email_Notificaciones')->first()->value;
+          $name = env('APP_NAME');//$Pet->client->first_name . " " . $Pet->client->last_name;
+          $message->from(env('MAIL_USERNAME'),env('APP_NAME'));
+          $message->to($Email, $name )->subject('Solicitud de cita');
+        });
+
+        // return view('email/appointment_email', $data);
         return redirect('/');
     }
 
@@ -139,6 +169,20 @@ class AppointmentController extends Controller
         return redirect('appointments')->with('Message','Appointment updated successfully');
         return view('appointments');
 
+    }
+
+    public function accept($id){
+        $Appointment = Appointment::findOrFail($id);
+        $Appointment->status = 'Aceptada';
+        $Appointment->save();
+        return redirect('/appointments');
+    }
+
+    public function deny($id){
+        $Appointment = Appointment::findOrFail($id);
+        $Appointment->status = 'Cancelada';
+        $Appointment->save();
+        return redirect('/appointments');
     }
 
 }

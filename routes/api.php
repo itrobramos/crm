@@ -18,9 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
 Route::get('/notifications', 'NotificationController@create');
-
 Route::get('/dailyResume', 'MailController@dailyResume');
-
 Route::get('/birthdays', 'MailController@birthdays');
+
+
+Route::get('/acceptAppointment/{id}','AppointmentController@accept');
+Route::get('/denyAppointment/{id}','AppointmentController@deny');

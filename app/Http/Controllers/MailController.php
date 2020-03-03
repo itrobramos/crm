@@ -51,10 +51,10 @@ class MailController extends Controller
         // return view('email.daily_resume',$data);
 
         Mail::send('email.daily_resume', $data,
-        function($message){
-            $email = 'roberto.ramosalv@gmail.com'; //$Pet->client->email;
-            $message->from(env('MAIL_USERNAME'),'Adrián Hernández');
-            $message->to($email, 'Adrián Hernández')->subject('Resumen del día');
+        function($message, $Pet){
+            $email = $Pet->client->email;
+            $message->from(env('MAIL_USERNAME'),env('APP_NAME'));
+            $message->to($email, env('APP_NAME'))->subject('Resumen del día');
         });
 
     }
@@ -78,10 +78,10 @@ class MailController extends Controller
         foreach($Pets as $Pet){
 
             Mail::send('email.birthday', $data,
-            function($message){
-              $email = "roberto.ramosalv@gmail.com"; //$Pet->client->email;
-              $name = "test";//$Pet->client->first_name . " " . $Pet->client->last_name;
-              $message->from(env('MAIL_USERNAME'),'Adrián Hernández');
+            function($message, $Pet){
+              $email = $Pet->client->email;
+              $name = $Pet->client->first_name . " " . $Pet->client->last_name;
+              $message->from(env('MAIL_USERNAME'),env('APP_NAME'));
               $message->to($email, $name )->subject('Feliz aniversario');
             });
         }
@@ -98,10 +98,10 @@ class MailController extends Controller
 
 
             Mail::send('email.birthday', $data,
-            function($message){
-                $email = "roberto.ramosalv@gmail.com"; //$Client->email;
+            function($message, $Client){
+                $email = $Client->email;
                 $name = $Client->first_name . " " . $Client->last_name;
-                $message->from(env('MAIL_USERNAME'),'Adrián Hernández');
+                $message->from(env('MAIL_USERNAME'),env('APP_NAME'));
               $message->to($email, $name )->subject('Feliz aniversario');
             });
 

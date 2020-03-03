@@ -64,8 +64,8 @@ class EmailController extends Controller
 
         Mail::send('email.simple_email', $data,
         function($message) use ($email){
-            $message->from(env('MAIL_USERNAME'),'Adrián Hernández');
-            $message->to($email, 'Adrián Hernández')->subject('Mensaje enviado desde la plataforma');
+            $message->from(env('MAIL_USERNAME'),env('APP_NAME'));
+            $message->to($email, env('APP_NAME'))->subject('Mensaje enviado desde la plataforma');
         });
 
         return redirect('emails');

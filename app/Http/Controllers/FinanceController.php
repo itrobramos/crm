@@ -91,12 +91,12 @@ class FinanceController extends Controller
             $query = 'select year(date) year, sum(amount) total from finances where type = "E" AND year(date) = ' . $Year->year . ' group by year(date)';
             $egresos = DB::select($query);
 
-            if($ingresos[0] == null)
+            if($ingresos == null)
                 $currentIngresos = 0;
             else
                 $currentIngresos = $ingresos[0]->total;
 
-            if($egresos[0] == null)
+            if($egresos == null)
                 $currentEgresos = 0;
             else
                 $currentEgresos = $egresos[0]->total();

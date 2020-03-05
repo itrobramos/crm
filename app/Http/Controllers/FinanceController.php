@@ -91,7 +91,17 @@ class FinanceController extends Controller
             $query = 'select year(date) year, sum(amount) total from finances where type = "E" AND year(date) = ' . $Year->year . ' group by year(date)';
             $egresos = DB::select($query);
 
-            $YearTab[] = ["year" => $Year, "ingresos" => $ingresos[0]->total, "egresos" => $egresos[0]->total, "total" =>  $ingresos[0]->total - $egresos[0]->total ];
+            if($ingresos[0] == null)
+                $currentIngresos = 0;
+            else
+                $currentIngresos = $ingresos[0]->total;
+
+            if($egresos[0] == null)
+                $currentEgresos = 0;
+            else
+                $currentEgresos = $egresos[0]->total();
+
+            $YearTab[] = ["year" => $Year, "ingresos" => $ingresos[0]->total, "egresos" => $currentEgresos, "total" =>  $currentIngresos - $currentEgresos];
         }
 
         $data['anual_finances'] = $YearGraph;

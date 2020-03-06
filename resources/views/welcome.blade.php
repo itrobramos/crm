@@ -112,7 +112,7 @@
                     <div class="dish_wrap d-flex">
                         <div class="single_dish text-center">
                             <video width="320" height="240" controls>
-                                <source src="/img/video/sesion1.mp4" type="video/mp4">
+                                <source src="/public/img/video/sesion1.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
@@ -123,7 +123,7 @@
                     <div class="dish_wrap d-flex">
                         <div class="single_dish text-center">
                             <video width="320" height="240" controls>
-                                <source src="/img/video/sesion2.mp4" type="video/mp4">
+                                <source src="/public/img/video/sesion2.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
@@ -134,7 +134,7 @@
                     <div class="dish_wrap d-flex">
                         <div class="single_dish text-center">
                             <video width="320" height="240" controls>
-                                <source src="/img/video/sesion3.mp4" type="video/mp4">
+                                <source src="/public/img/video/sesion3.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
@@ -180,7 +180,7 @@
                     <div class="dish_wrap d-flex">
                         <div class="single_dish text-center">
                             <video width="320" height="240" controls>
-                                <source src="/img/testmonial/video1.mp4" type="video/mp4">
+                                <source src="/public/img/testmonial/video1.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>

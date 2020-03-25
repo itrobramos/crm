@@ -26,7 +26,10 @@
     <link href="dashboard/assets/img/brand/favicon.png" rel="icon" type="image/png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
     <!-- Icons -->
     <link rel="stylesheet" href="{{ env('DEPLOY_URL') }}/css/bootstrap.min.css">
 
@@ -403,6 +406,27 @@
 
             </div>
 
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="card shadow">
+                        <div class="card-header bg-transparent">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h6 class="text-uppercase text-muted ls-1 mb-1">Reporte</h6>
+                                    <h2 class="mb-0">Clientes por ciudad</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-pane fade show" id="nav-anual" role="tabpanel" aria-labelledby="nav-anual-tab">
+                                    <center><div id="cities" style="height: 250px; width:400px;"></div></center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
 
 
 
@@ -445,6 +469,33 @@ var data = [
     };
     config.element = 'month';
     Morris.Bar(config);
+
+
+    var data = [
+
+@foreach ($city_clients as $city_client)
+{
+    y: '{{$city_client->city}}',
+    a: {{$city_client->total}}
+},
+@endforeach
+],
+config = {
+  data: data,
+  xkey: 'y',
+  ykeys: ['a'],
+  xLabelMargin: 0,
+  labels: ['Total'],
+  fillOpacity: 0.6,
+  hideHover: 'auto',
+  behaveLikeLine: true,
+  resize: true,
+  pointFillColors:['#ffffff'],
+  pointStrokeColors: ['black'],
+  barColors:['#ADD8E6']
+};
+config.element = 'cities';
+Morris.Bar(config);
 
 </script>
 

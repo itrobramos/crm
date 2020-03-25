@@ -99,7 +99,7 @@ class FinanceController extends Controller
             if($egresos == null)
                 $currentEgresos = 0;
             else
-                $currentEgresos = $egresos[0]->total();
+                $currentEgresos = $egresos[0]->total;
 
             $YearTab[] = ["year" => $Year, "ingresos" => $ingresos[0]->total, "egresos" => $currentEgresos, "total" =>  $currentIngresos - $currentEgresos];
         }

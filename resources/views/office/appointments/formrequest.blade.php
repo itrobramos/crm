@@ -28,9 +28,9 @@
                             <div class="col-lg-3"></div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="input-email">Email</label>
+                                    <label class="form-control-label" for="input-email" >Email</label>
                                     <input type="text" id="input-email" name="email"
-                                        class="form-control form-control-alternative" value="" required>
+                                        class="form-control form-control-alternative" value="" required onfocusout="loadData()">
                                 </div>
                             </div>
                         </div>
@@ -40,14 +40,14 @@
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-name">Nombre</label>
-                                    <input type="text" id="input-name" name="first_name"
+                                    <input type="text" id="first_name" name="first_name"
                                         class="form-control form-control-alternative" value="" required>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-name">Apellido</label>
-                                    <input type="text" id="input-name" name="last_name"
+                                    <input type="text" id="last_name" name="last_name"
                                         class="form-control form-control-alternative" value="" required>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-phone">Teléfono</label>
-                                    <input type="text" id="input-phone" name="phone"
+                                    <input type="text" id="phone" name="phone"
                                         class="form-control form-control-alternative" value="" required>
                                 </div>
                             </div>
@@ -69,7 +69,7 @@
                                     <label class="form-control-label" for="input-sex-client">Sexo</label>
                                     <!-- Default unchecked -->
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="defaultUnchecked"
+                                        <input type="radio" class="custom-control-input" id="client_genre_f"
                                             name="genre" value="F"
                                             {{ isset($client->genre) && $client->genre == "F" ?"checked":""}}>
                                         <label class="custom-control-label" for="defaultUnchecked">Femenino</label>
@@ -77,7 +77,7 @@
 
                                     <!-- Default checked -->
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="defaultChecked"
+                                        <input type="radio" class="custom-control-input" id="client_genre_m"
                                             name="genre" value="M"
                                             {{ isset($client->genre) && $client->genre == "M" ?"checked":""}}>
                                         <label class="custom-control-label" for="defaultChecked">Masculino</label>
@@ -90,7 +90,7 @@
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-birth_date">Fecha Nacimiento</label>
-                                    <input type="date" id="input-birth_date" name="birth_date"
+                                    <input type="date" id="birth_date" name="birth_date"
                                         class="form-control form-control-alternative datepicker"
                                         value="{{ isset($client->birth_date)?$client->birth_date:""}}" required>
                                 </div>
@@ -105,7 +105,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="input-name">Nombre</label>
-                                    <input type="text" id="input-name" name="pet_name"
+                                    <input type="text" id="pet_name" name="pet_name"
                                         class="form-control form-control-alternative" require
                                         value="{{ isset($pet->name)?$pet->name:""}}" required>
                                 </div>
@@ -116,7 +116,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="input-breed">Raza</label>
-                                    <input type="text" id="input-breed" name="breed"
+                                    <input type="text" id="pet_breed" name="breed"
                                         class="form-control form-control-alternative" require
                                         value="{{ isset($pet->breed)?$pet->breed:""}}" required>
                                 </div>
@@ -127,7 +127,7 @@
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-birth_date">Fecha Nacimiento</label>
-                                    <input type="date" id="input-birth_date" name="pet_birth_date"
+                                    <input type="date" id="pet_birthdate" name="pet_birth_date"
                                         class="form-control form-control-alternative datepicker"
                                         value="{{ isset($pet->birth_date)?$pet->birth_date:""}}" required>
                                 </div>
@@ -137,7 +137,7 @@
                                     <label class="form-control-label" for="input-sex-pet">Sexo</label>
                                     <!-- Default unchecked -->
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="defaultUnchecked2"
+                                        <input type="radio" class="custom-control-input" id="pet_genre_f"
                                             name="pet_genre" value="F"
                                             {{ isset($pet->genre) && $pet->genre == "F" ?"checked":""}}>
                                         <label class="custom-control-label" for="defaultUnchecked2">Hembra</label>
@@ -145,7 +145,7 @@
 
                                     <!-- Default checked -->
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="defaultChecked2"
+                                        <input type="radio" class="custom-control-input" id="pet_genre_m"
                                             name="pet_genre" value="M"
                                             {{ isset($pet->genre) && $pet->genre == "M" ?"checked":""}}>
                                         <label class="custom-control-label" for="defaultChecked2">Macho</label>
@@ -197,7 +197,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="input-breed">Municipio</label>
-                                    <input type="text" id="input-breed" name="city"
+                                    <input type="text" id="city" name="city"
                                         class="form-control form-control-alternative" required
                                         value="">
                                 </div>
@@ -209,7 +209,7 @@
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="input-breed">Dirección</label>
                                     <textarea rows="4" class="form-control form-control-alternative"
-                                        name="address" required></textarea>
+                                        name="address" required id="address"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -267,5 +267,45 @@
                 alert("Nombre y apellido son datos obligatorios");
             }
         });
+
+        function loadData(){
+            var email = $("#input-email").val();
+            $.ajax({
+                    type: "GET",
+                    dataType: "JSON",
+                    contentType: false,
+                    processData: false,
+                    url: "../api/getClientInfo?email="+email,
+                    success: function(data) {
+                        if(data['statusCode'] == 1){
+                            $('#first_name').val(data["resultset"]['first_name']);
+                            $('#last_name').val(data["resultset"]["last_name"]);
+                            $('#phone').val(data["resultset"]['phone']);
+                            $('#birth_date').val(data["resultset"]["birthdate"]);
+                            $('#pet_birthdate').val(data["resultset"]["pet_birthdate"]);
+                            $('#pet_name').val(data["resultset"]["pet_name"]);
+                            $('#pet_breed').val(data["resultset"]["pet_breed"]);
+                            $('#city').val(data["resultset"]["city"]);
+                            $('#address').val(data["resultset"]["address"]);
+
+                            if(data["resultset"]["pet_genre"] == 'M')
+                                $('#pet_genre_m').prop('checked',true);
+                            else
+                                $('#pet_genre_f').prop('checked',true);
+
+                            if(data["resultset"]["genre"] == 'M')
+                                $('#client_genre_m').prop('checked',true);
+                            else
+                                $('#client_genre_f').prop('checked',true);
+                        }
+
+                    },
+                    error : function(data){
+                        console.log(data);
+                        alert('Error');
+                    }
+                });
+
+        }
         </script>
         @endsection

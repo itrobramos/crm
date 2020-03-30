@@ -24,7 +24,8 @@ class ClientController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ['request', 'storerequest', 'getInfo']]);
+
     }
 
 
@@ -190,5 +191,42 @@ class ClientController extends Controller
     }
 
 
+    public function  getInfo(Request $request){
+
+        $email = ($request->email);
+
+        $response = collect([
+            "statusCode" => 0,
+            "statusMessage" => "OK",
+            "resultset" => ""
+        ]);
+
+
+        $client = Client::where('email',$email)->first();
+
+        if($client == null){
+            $response['statusCode'] = 0;
+        }
+        else{
+            $response['statusCode'] = 1;
+            $data = ["email"=>$email,
+                     "first_name"=>$client->first_name,
+                     "last_name"=>$client->last_name,
+                     "phone"=>$client->phone1,
+                     "genre"=>$client->genre,
+                     "birthdate"=>$client->birth_date,
+                     "pet_name"=>$client->pets->first()->name,
+                     "pet_breed"=>$client->pets->first()->breed,
+                     "pet_genre"=>$client->pets->first()->genre,
+                     "pet_birthdate"=>$client->pets->first()->birth_date,
+                     "city"=>$client->city,
+                     "address"=>$client->address
+                    ];
+
+            $response['resultset'] = $data;
+        }
+
+        return response()->json($response, 200);
+    }
 
 }

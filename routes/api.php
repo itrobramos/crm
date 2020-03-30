@@ -21,6 +21,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/notifications', 'NotificationController@create');
 Route::get('/dailyResume', 'MailController@dailyResume');
 Route::get('/birthdays', 'MailController@birthdays');
+Route::get('/getClientInfo', 'ClientController@getInfo');
+
 
 
 Route::get('/acceptAppointment/{id}','AppointmentController@accept');

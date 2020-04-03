@@ -21,8 +21,11 @@
                 <div class="card bg-secondary shadow" id="test1">
                     <br>
                     <div class="card-body">
-
                         <div class="pl-lg-4">
+                        @if($errors->any())
+                            <span style='color:red'>{{ implode('', $errors->all(':message')) }}</span>
+                        @endif
+
                             <div class="row">
 
                                 <div class="col-lg-2">

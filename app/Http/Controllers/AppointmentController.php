@@ -7,6 +7,7 @@ use App\Client;
 use App\Pet;
 use App\Setting;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
 use Mail;
 
 use Illuminate\Http\Request;
@@ -150,17 +151,35 @@ class AppointmentController extends Controller
 
     public function store(Request $request){
 
-        $Appointment = new Appointment();
 
-        $Appointment->date = $request->date;
-        $Appointment->time = $request->time;
-        $Appointment->petId = $request->petId;
-        $Appointment->type = $request->type;
-        $Appointment->notes = $request->notes;
-        $Appointment->status = "Aceptada";
+        $Duracion = Setting::where('name','Duracion_Cita')->first()->value;
+        $endTime = strtotime("-" . $Duracion . " minutes", strtotime($request->time));
+        $endTime = date('H:i', $endTime);
 
-        $Appointment->save();
-        return redirect('appointments')->with('Message','Appointment created successfully');
+
+        $ExistingAppointment = Appointment::where('date',$request->date)
+                            ->where('time','<=',$request->time)
+                            ->where('time','>=',$endTime )->first();
+
+
+
+        if($ExistingAppointment != null){
+            $Message = 'test';
+            return Redirect::back()->withErrors('No fue posible crear la cita, revise su disponibilidad.');
+            return redirect('appointments/create');
+
+        }else{
+            $Appointment = new Appointment();
+            $Appointment->date = $request->date;
+            $Appointment->time = $request->time;
+            $Appointment->petId = $request->petId;
+            $Appointment->type = $request->type;
+            $Appointment->notes = $request->notes;
+            $Appointment->status = "Aceptada";
+
+            $Appointment->save();
+            return redirect('appointments')->with('Message','Appointment created successfully');
+        }
     }
 
     public function update(Request $request){
@@ -192,5 +211,6 @@ class AppointmentController extends Controller
         $Appointment->save();
         return redirect('/appointments');
     }
+
 
 }

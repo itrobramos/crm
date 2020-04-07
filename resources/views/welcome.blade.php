@@ -318,13 +318,18 @@
                     return false;
                 }
 
-                var allDay = !start.hasTime() && !end.hasTime();
-                if (confirm(["¿Desea agendar una cita el: " + moment(start).format() + " ?"]) ==
-                    true)
-                    window.location.href = "/appointments/request?date=" + moment(start).format();
+                if (!IsDateHasEvent(start)) {
+                    var allDay = !start.hasTime() && !end.hasTime();
+                    if (confirm(["¿Desea agendar una cita el: " + moment(start).format() + " ?"]) ==
+                        true)
+                        window.location.href = "/appointments/request?date=" + moment(start).format();
+                }
             }
         });
     });
+
+
+
     </script>
 
 

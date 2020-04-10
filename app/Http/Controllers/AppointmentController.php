@@ -73,7 +73,19 @@ class AppointmentController extends Controller
         $datetime = strtotime($request->date);
         $date = date('Y-m-d', $datetime);
         $time = date('H:i', $datetime);
+        $Duracion = Setting::where('name','Duracion_Cita')->first()->value;
+        $endTime = strtotime("-" . $Duracion . " minutes", strtotime($time));
+        $endTime = date('H:i', $endTime);
 
+
+        $ExistingAppointment = Appointment::where('date',$date)
+        ->where('time','<=',$time)
+        ->where('time','>=',$endTime )->first();
+
+
+        if($ExistingAppointment != null){
+            return Redirect::back()->withErrors('El horario seleccionado no se encuentra disponible, por favor seleccione nuevamente.');
+        }
         return view('office/appointments/request', compact('date'), compact('time'));
     }
 

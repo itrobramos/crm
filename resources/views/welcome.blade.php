@@ -207,6 +207,10 @@
                 <div class="col-xl-2"></div>
 
                 <div class="col-xl-8">
+                        @if($errors->any())
+                            <span style='color:red'>{{ implode('', $errors->all(':message')) }}</span>
+                        @endif
+                    <br>
 
                     <div id='calendar' style="width:100%; height:400px;"></div>
 

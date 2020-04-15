@@ -54,7 +54,11 @@
 
                                 <textarea id="textarea" name="detail"></textarea>
 
-<br>
+                                <br>
+
+                                <input multiple="multiple" name="files[]" type="file">
+
+
                                 <div class="text-right">
                                     <a href="{{ url('emails')}}" class='btn btn-primary btn-md'>Cancelar</a>
                                     <input type="submit" id="btnSave" class='btn btn-success btn-md' value="Enviar">

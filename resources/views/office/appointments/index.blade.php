@@ -25,8 +25,7 @@ $(document).ready(function() {
         eventClick: function(event) {
             window.location.href = "/appointments/" + event.id;
         },
-        select: function(start, end, jsEvent, view) {
-            var allDay = !start.hasTime() && !end.hasTime();
+        dayClick: function(start, end, jsEvent, view) {
             if (confirm(["¿Desea agendar una cita el: " + moment(start).format() + " ?"]) ==
                 true)
                 window.location.href = "/appointments/create?date=" + moment(start).format();

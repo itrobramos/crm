@@ -1,10 +1,5 @@
 @extends('layouts.app')
-
-
-
 @section('content')
-
-
 
 <div class="row">
     <div class="col">
@@ -13,25 +8,25 @@
                 <h3 class="mb-0">Reportes</h3>
             </div>
 
-            <nav>
-                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-control nav-link active" id="nav-home-tab" data-toggle="tab"
-                        href="#nav-semanal" role="tab" aria-controls="nav-semanal" aria-selected="true">Semanal</a>
-                    <a class="nav-item nav-control nav-link" id="nav-mensual-tab" data-toggle="tab" href="#nav-mensual"
-                        role="tab" aria-controls="nav-mensual" aria-selected="false">Mensual</a>
-                    <a class="nav-item nav-control nav-link" id="nav-anual-tab" data-toggle="tab" href="#nav-anual"
-                        role="tab" aria-controls="nav-anual" aria-selected="false">Anual</a>
+            <div class="row">
+                <div class="nav nav-tabs nav-fill" style = "width:100%;" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-control nav-link col-4" active" id="nav-home-tab" data-toggle="tab"
+                        href="#nav-semanal" role="tab" aria-controls="nav-semanal" aria-selected="true" style="font-size:1em;">Semanal</a>
+                    <a class="nav-item nav-control nav-link col-4" id="nav-mensual-tab" data-toggle="tab" href="#nav-mensual"
+                        role="tab" aria-controls="nav-mensual" aria-selected="false" style="font-size:1em;">Mensual</a>
+                    <a class="nav-item nav-control nav-link col-4" id="nav-anual-tab" data-toggle="tab" href="#nav-anual"
+                        role="tab" aria-controls="nav-anual" aria-selected="false" style="font-size:1em;">Anual</a>
                 </div>
-            </nav>
+            </div>
 
-            <div class="tab-content" id="nav-tabContent">
+            <div class="tab-content row" id="nav-tabContent">
 
-                <div class="tab-pane fade show active" id="nav-semanal" role="tabpanel" aria-labelledby="nav-semanal-tab">
-                    <center><div id="weekgraph" style="height: 250px; width:600px;"></div></center>
+                <div class="tab-pane fade show col-10 active" id="nav-semanal" role="tabpanel" aria-labelledby="nav-semanal-tab">
+                    <center><div id="weekgraph" class="col-sm-12" style="height: 250px;"></div></center>
 
                     <br>                    <br>                    <br>
 
-                    <table class='table align-items-center table-flush'>
+                    <table class='table table-responsive align-items-center table-flush'>
                         <thead class="thead-light">
                             <th>Año</th>
                             <th>Semana</th>
@@ -52,13 +47,13 @@
 
                 </div>
 
-                <div class="tab-pane fade show" id="nav-mensual" role="tabpanel" aria-labelledby="nav-mensual-tab">
+                <div class="tab-pane fade show col-10" id="nav-mensual" role="tabpanel" aria-labelledby="nav-mensual-tab">
 
-                    <center><div id="monthgraph" style="height: 250px; width:600px;"></div></center>
+                    <center><div id="monthgraph" class ="col-12" style="height: 250px;"></div></center>
 
                     <br>                    <br>                    <br>
 
-                    <table class='table align-items-center table-flush'>
+                    <table class='table table-responsive align-items-center table-flush'>
                         <thead class="thead-light">
                             <th>Año</th>
                             <th>Mes</th>
@@ -79,11 +74,11 @@
 
                 </div>
 
-                <div class="tab-pane fade show" id="nav-anual" role="tabpanel" aria-labelledby="nav-anual-tab">
-                    <center><div id="anual" style="height: 250px; width:400px;"></div></center>
+                <div class="tab-pane fade show col-10" id="nav-anual" role="tabpanel" aria-labelledby="nav-anual-tab">
+                    <center><div id="anual" class ="col-10" style="height: 250px;"></div></center>
 
 
-                    <table class='table align-items-center table-flush'>
+                    <table class='table table-responsive align-items-center table-flush'>
                         <thead class="thead-light">
                             <th>Año</th>
                             <th>Ingresos</th>
@@ -110,6 +105,8 @@
 
 <script type="text/javascript">
 
+$(".table").dataTable();
+
 var data = [
 
     @foreach ($anual_finances as $finance)
@@ -127,6 +124,7 @@ var data = [
       data: data,
       xkey: 'y',
       ykeys: ['a', 'b'],
+      xLabelMargin: 0,
       labels: ['Ingresos', 'Egresos'],
       fillOpacity: 0.6,
       hideHover: 'auto',
@@ -153,6 +151,7 @@ var data = [
     data: data,
     xkey: 'y',
     ykeys: ['a', 'b'],
+    xLabelMargin: 0,
     labels: ['Ingresos', 'Egresos'],
     fillOpacity: 0.6,
     hideHover: 'auto',
@@ -164,8 +163,6 @@ var data = [
     };
     config.element = 'monthgraph';
     Morris.Bar(config);
-
-
 
     var data = [
         @foreach ($week_finances_tab as $finance)
@@ -180,6 +177,7 @@ var data = [
     data: data,
     xkey: 'y',
     ykeys: ['a', 'b'],
+    xLabelMargin: 0,
     labels: ['Ingresos', 'Egresos'],
     fillOpacity: 0.6,
     hideHover: 'auto',
@@ -191,6 +189,7 @@ var data = [
     };
     config.element = 'weekgraph';
     Morris.Bar(config);
+
 
 
 </script>

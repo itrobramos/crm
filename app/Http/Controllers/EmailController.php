@@ -61,14 +61,18 @@ class EmailController extends Controller
 
         $data['email_text'] = $request->detail;
         $email = Client::find($request->clientId)->email;
+        $files = $request->file('files');
 
         Mail::send('email.simple_email', $data,
-        function($message) use ($email){
+        function($message) use ($email, $files){
             $message->from(env('MAIL_USERNAME'),env('APP_NAME'));
             $message->to($email, env('APP_NAME'))->subject('Mensaje enviado desde la plataforma');
+
+            foreach ($files as $file){
+                $message->attach($file, array('as' => $file->getClientOriginalName()));
+            }
         });
 
         return redirect('emails');
 
-    }
-}
+    }}

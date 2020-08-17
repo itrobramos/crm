@@ -46,7 +46,6 @@ class DashboardController extends Controller
         $data['ingresos'] =  $Ingresos - $Egresos;
 
         ////Inicio reporte de clientes por mes
-
          //Year
          $YearGraph = DB::select("select year(a.date) year, month(a.date) month, count(*) total
                                   from clients c INNER JOIN pets p ON c.id = p.clientid
@@ -54,8 +53,18 @@ class DashboardController extends Controller
                                   WHERE a.status = 'Finalizada'
                                   Group by year(a.date), month(a.date)");
          $data['month_clients'] = $YearGraph;
-
          //Fin reporte de clientes por mes
+
+        ////Inicio reporte de clientes por ciudad
+         //Year
+         $CityGraph = DB::select("select c.city city, count(*) total
+                                  from clients c
+                                  WHERE c.city IS NOT NULL
+                                  Group by c.city");
+
+         $data['city_clients'] = $CityGraph;
+         //Fin reporte de clientes por ciudad
+
 
         return view('office/index',$data);
     }

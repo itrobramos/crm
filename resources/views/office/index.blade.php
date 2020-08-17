@@ -26,7 +26,10 @@
     <link href="dashboard/assets/img/brand/favicon.png" rel="icon" type="image/png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
     <!-- Icons -->
     <link rel="stylesheet" href="{{ env('DEPLOY_URL') }}/css/bootstrap.min.css">
 
@@ -36,7 +39,10 @@
     <link href="{{ env('DEPLOY_URL')}}/dashboard/assets/css/argon-dashboard.css?v=1.1.0') }}" rel="stylesheet" />
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> -->
+    <script src="{{env('DEPLOY_URL')}}/dashboard/assets/js/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="{{env('DEPLOY_URL')}}/dashboard/assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js">
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
     </ </head> <body class="">
@@ -53,17 +59,12 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link nav-link-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                        <i class="ni ni-bell-55"></i>
                     </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         <div class="media align-items-center">
-                            <span class="avatar avatar-sm rounded-circle">
-                                <img alt="Image placeholder" src="dashboard/assets/img/theme/team-1-800x800.jpg
-">
-                            </span>
                         </div>
                     </a>
                     <!-- <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
@@ -91,11 +92,6 @@
                 <!-- Collapse header -->
                 <div class="navbar-collapse-header d-md-none">
                     <div class="row">
-                        <div class="col-6 collapse-brand">
-                            <a href="./index.html">
-                                <img src="dashboard/assets/img/brand/blue.png">
-                            </a>
-                        </div>
                         <div class="col-6 collapse-close">
                             <button type="button" class="navbar-toggler" data-toggle="collapse"
                                 data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false"
@@ -106,18 +102,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Form -->
-                <form class="mt-4 mb-3 d-md-none">
-                    <div class="input-group input-group-rounded input-group-merge">
-                        <input type="search" class="form-control form-control-rounded form-control-prepended"
-                            placeholder="Search" aria-label="Search">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">
-                                <span class="fa fa-search"></span>
-                            </div>
-                        </div>
-                    </div>
-                </form>
                 <!-- Navigation -->
                 <ul class="navbar-nav">
                     <li class="nav-item  class=" active" ">
@@ -422,6 +406,27 @@
 
             </div>
 
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="card shadow">
+                        <div class="card-header bg-transparent">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h6 class="text-uppercase text-muted ls-1 mb-1">Reporte</h6>
+                                    <h2 class="mb-0">Clientes por ciudad</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-pane fade show" id="nav-anual" role="tabpanel" aria-labelledby="nav-anual-tab">
+                                    <center><div id="cities" style="height: 250px; width:400px;"></div></center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
 
 
 
@@ -464,6 +469,33 @@ var data = [
     };
     config.element = 'month';
     Morris.Bar(config);
+
+
+    var data = [
+
+@foreach ($city_clients as $city_client)
+{
+    y: '{{$city_client->city}}',
+    a: {{$city_client->total}}
+},
+@endforeach
+],
+config = {
+  data: data,
+  xkey: 'y',
+  ykeys: ['a'],
+  xLabelMargin: 0,
+  labels: ['Total'],
+  fillOpacity: 0.6,
+  hideHover: 'auto',
+  behaveLikeLine: true,
+  resize: true,
+  pointFillColors:['#ffffff'],
+  pointStrokeColors: ['black'],
+  barColors:['#ADD8E6']
+};
+config.element = 'cities';
+Morris.Bar(config);
 
 </script>
 

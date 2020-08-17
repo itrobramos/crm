@@ -16,7 +16,7 @@
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Email</th>
+                            <th scope="col">Ciudad</th>
                             <th scope="col">Último Servicio</th>
                             <th scope="col">Mascotas</th>
                             <th scope="col">Ingresos</th>
@@ -37,7 +37,7 @@
                                 </div>
                             </th>
                             <td>
-                                {{$client->email}}
+                                {{$client->city}}
                             </td>
                             <td>
                                 <span class="badge badge-dot mr-4">

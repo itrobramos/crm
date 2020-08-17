@@ -7,6 +7,7 @@ use App\Client;
 use App\Pet;
 use App\Setting;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
 use Mail;
 
 use Illuminate\Http\Request;
@@ -72,30 +73,50 @@ class AppointmentController extends Controller
         $datetime = strtotime($request->date);
         $date = date('Y-m-d', $datetime);
         $time = date('H:i', $datetime);
+        $Duracion = Setting::where('name','Duracion_Cita')->first()->value;
+        $endTime = strtotime("-" . $Duracion . " minutes", strtotime($time));
+        $endTime = date('H:i', $endTime);
 
+
+        $ExistingAppointment = Appointment::where('date',$date)
+        ->where('time','<=',$time)
+        ->where('time','>=',$endTime )->first();
+
+
+        if($ExistingAppointment != null){
+            return Redirect::back()->withErrors('El horario seleccionado no se encuentra disponible, por favor seleccione nuevamente.');
+        }
         return view('office/appointments/request', compact('date'), compact('time'));
     }
 
     public function storerequest(Request $request){
 
-        $Client = new Client();
-        $Client->email = $request->email;
-        $Client->first_name = $request->first_name;
-        $Client->last_name = $request->last_name;
-        $Client->phone1 = $request->phone;
-        $Client->genre = $request->genre;
-        $Client->city = $request->city;
-        $Client->birth_date = $request->birth_date;
-        $Client->address = $request->address;
-        $Client->save();
+        $Client = Client::where('email',$request->email)->first();
 
-        $Pet = new Pet();
-        $Pet->name = $request->pet_name;
-        $Pet->birth_date = $request->pet_birth_date;
-        $Pet->genre = $request->pet_genre;
-        $Pet->breed = $request->breed;
-        $Pet->clientId = $Client->id;
-        $Pet->save();
+        if($Client == null){
+            $Client = new Client();
+            $Client->email = $request->email;
+            $Client->first_name = $request->first_name;
+            $Client->last_name = $request->last_name;
+            $Client->phone1 = $request->phone;
+            $Client->genre = $request->genre;
+            $Client->city = $request->city;
+            $Client->birth_date = $request->birth_date;
+            $Client->address = $request->address;
+            $Client->save();
+        }
+
+        $Pet = Pet::where('clientId', $Client->id)->where('name',$request->pet_name)->first();
+
+        if($Pet == null){
+            $Pet = new Pet();
+            $Pet->name = $request->pet_name;
+            $Pet->birth_date = $request->pet_birth_date;
+            $Pet->genre = $request->pet_genre;
+            $Pet->breed = $request->breed;
+            $Pet->clientId = $Client->id;
+            $Pet->save();
+        }
 
         $Appointment = new Appointment();
         $Appointment->date = $request->appointment_date;
@@ -114,7 +135,7 @@ class AppointmentController extends Controller
         $data['pet_name'] = $Pet->name;
         $data['pet_breed'] = $Pet->breed;
         $data['pet_genre'] = $Pet->genre;
-        
+
         $data['appointment_date'] = $Appointment->date;
         $data['appointment_time'] = $Appointment->time;
         $data['appointment_type'] = $Appointment->type;
@@ -124,15 +145,15 @@ class AppointmentController extends Controller
         $data['appointment_notes'] = $Appointment->notes;
         $data['appointment_id'] = $Appointment->id;
 
-        
 
-        Mail::send('email.appointment_email', $data,
-        function($message){
-          $Email = Setting::where('name','Email_Notificaciones')->first()->value;
-          $name = env('APP_NAME');//$Pet->client->first_name . " " . $Pet->client->last_name;
-          $message->from(env('MAIL_USERNAME'),env('APP_NAME'));
-          $message->to($Email, $name )->subject('Solicitud de cita');
-        });
+
+        // Mail::send('email.appointment_email', $data,
+        // function($message){
+        //   $Email = Setting::where('name','Email_Notificaciones')->first()->value;
+        //   $name = env('APP_NAME');//$Pet->client->first_name . " " . $Pet->client->last_name;
+        //   $message->from(env('MAIL_USERNAME'),env('APP_NAME'));
+        //   $message->to($Email, $name )->subject('Solicitud de cita');
+        // });
 
         // return view('email/appointment_email', $data);
         return redirect('/');
@@ -142,17 +163,35 @@ class AppointmentController extends Controller
 
     public function store(Request $request){
 
-        $Appointment = new Appointment();
 
-        $Appointment->date = $request->date;
-        $Appointment->time = $request->time;
-        $Appointment->petId = $request->petId;
-        $Appointment->type = $request->type;
-        $Appointment->notes = $request->notes;
-        $Appointment->status = "Aceptada";
+        $Duracion = Setting::where('name','Duracion_Cita')->first()->value;
+        $endTime = strtotime("-" . $Duracion . " minutes", strtotime($request->time));
+        $endTime = date('H:i', $endTime);
 
-        $Appointment->save();
-        return redirect('appointments')->with('Message','Appointment created successfully');
+
+        $ExistingAppointment = Appointment::where('date',$request->date)
+                            ->where('time','<=',$request->time)
+                            ->where('time','>=',$endTime )->first();
+
+
+
+        if($ExistingAppointment != null){
+            $Message = 'test';
+            return Redirect::back()->withErrors('No fue posible crear la cita, revise su disponibilidad.');
+            return redirect('appointments/create');
+
+        }else{
+            $Appointment = new Appointment();
+            $Appointment->date = $request->date;
+            $Appointment->time = $request->time;
+            $Appointment->petId = $request->petId;
+            $Appointment->type = $request->type;
+            $Appointment->notes = $request->notes;
+            $Appointment->status = "Aceptada";
+
+            $Appointment->save();
+            return redirect('appointments')->with('Message','Appointment created successfully');
+        }
     }
 
     public function update(Request $request){
@@ -184,5 +223,6 @@ class AppointmentController extends Controller
         $Appointment->save();
         return redirect('/appointments');
     }
+
 
 }

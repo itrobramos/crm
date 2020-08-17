@@ -1459,7 +1459,8 @@ h3 {
 @media (max-width: 767px) {
   /* line 13, ../../Arafath/CL/CL October/220 Tasty Recipes/HTML/scss/_slider.scss */
   .slider_area .single_slider {
-    height: 500px;
+    margin-top:20px;
+    height: 260px;
   }
 }
 

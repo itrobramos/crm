@@ -65,26 +65,26 @@
                             </div>
 
                             <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label class="form-control-label" for="input-sex-client">Sexo</label>
-                                    <!-- Default unchecked -->
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="client_genre_f"
-                                            name="genre" value="F"
-                                            {{ isset($client->genre) && $client->genre == "F" ?"checked":""}}>
-                                        <label class="custom-control-label" for="defaultUnchecked">Femenino</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                    <input type="radio" id="client_genre_f" value="F" name="genre" aria-label="Radio button for following text input" {{ isset($client->genre) && $client->genre == "F" ?"checked":""}}>Femenino<br>
+                                    
                                     </div>
-
-                                    <!-- Default checked -->
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="client_genre_m"
-                                            name="genre" value="M"
-                                            {{ isset($client->genre) && $client->genre == "M" ?"checked":""}}>
-                                        <label class="custom-control-label" for="defaultChecked">Masculino</label>
+                                    <div class="input-group-text">
+                                    <input type="radio"  id="client_genre_m" value="M" name="genre" aria-label="Radio button for following text input" {{ isset($client->genre) && $client->genre == "M" ?"checked":""}}>Masculino<br>
+                                    
                                     </div>
                                 </div>
+                                </div>
+
                             </div>
+
                         </div>
+
+                    
+
+
                         <div class="row">
                             <div class="col-lg-3"></div>
                             <div class="col-lg-3">
@@ -132,25 +132,22 @@
                                         value="{{ isset($pet->birth_date)?$pet->birth_date:""}}" required>
                                 </div>
                             </div>
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label class="form-control-label" for="input-sex-pet">Sexo</label>
-                                    <!-- Default unchecked -->
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="pet_genre_f"
-                                            name="pet_genre" value="F"
-                                            {{ isset($pet->genre) && $pet->genre == "F" ?"checked":""}}>
-                                        <label class="custom-control-label" for="defaultUnchecked2">Hembra</label>
-                                    </div>
 
-                                    <!-- Default checked -->
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="pet_genre_m"
-                                            name="pet_genre" value="M"
-                                            {{ isset($pet->genre) && $pet->genre == "M" ?"checked":""}}>
-                                        <label class="custom-control-label" for="defaultChecked2">Macho</label>
-                                    </div>
+                                <div class="col-lg-3">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                            <input type="radio" id="pet_genre_f" value="F" name="pet_genre" aria-label="Radio button for following text input" {{ isset($pet->genre) && $pet->genre == "F" ?"checked":""}}>Hembra<br>
+                                            
+                                            </div>
+                                            <div class="input-group-text">
+                                            <input type="radio"  id="pet_genre_m" value="M" name="pet_genre" aria-label="Radio button for following text input" {{ isset($pet->genre) && $pet->genre == "M" ?"checked":""}}>Macho<br>
+                                            
+                                            </div>
+                                        </div>
                                 </div>
+
+
                             </div>
 
                         </div>

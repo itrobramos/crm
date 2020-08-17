@@ -293,12 +293,17 @@
     <script type='text/javascript'>
     $(document).ready(function() {
         $('#calendar').fullCalendar({
+            monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+            monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+            dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
+            dayNamesShort: ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],
             selectable: true,
             defaultView: 'agendaWeek',
             minTime: '{{$inicio_citas}}',
             maxTime: '{{$fin_citas}}',
             showEndEvent: true,
             nowIndicator: true,
+            allDaySlot: false,
             hiddenDays: [ 0 ], //hide sundays
             eventLimit: true, // for all non-TimeGrid views
             views: {
